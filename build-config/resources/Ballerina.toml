@@ -1,0 +1,13 @@
+[package]
+distribution = "2201.13.0"
+org = "ballerinax"
+name = "trigger.quickbooks"
+version = "@toml.version@"
+license = ["Apache-2.0"]
+authors = ["Ballerina"]
+keywords = ["Financial Services/Accounting", "Cost/Freemium", "Trigger"]
+icon = "icon.png"
+repository = "https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger"
+
+[build-options]
+observabilityIncluded = true
