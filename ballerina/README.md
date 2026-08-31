@@ -44,18 +44,22 @@ the Accounting API if you need its contents).
 
 Before using this connector in your Ballerina application, you need a QuickBooks developer account
 and app, a sandbox company to generate real events against, and a Ballerina service that QuickBooks
-can reach over the internet to deliver webhook payloads to. The steps below cover a quick local test
-setup; see [Production / business integration](#production--business-integration) for deploying for
-real use.
+can reach over the internet to deliver webhook payloads to. The two sections below cover both a
+quick local test setup and a production deployment.
 
-### Step 1: Create an Intuit Developer Account and App
+### Try it out locally
+
+Use this flow to test your webhook handling logic on your own machine before deploying anywhere,
+using [ngrok](https://ngrok.com/) to expose your local listener to the internet.
+
+#### Step 1: Create an Intuit Developer Account and App
 
 1. [Sign up for an Intuit Developer account](https://developer.intuit.com/) if you don't already have one.
 2. Create a new app from the developer dashboard, selecting the QuickBooks Online Accounting API.
 3. Under **Sandbox**, note the sandbox company QuickBooks creates automatically for your app - this
    is where you'll trigger real test events (creating/updating/deleting invoices, customers, etc.).
 
-### Step 2: Set Up ngrok
+#### Step 2: Set Up ngrok
 
 The Ballerina listener runs locally and needs a publicly accessible URL so QuickBooks can deliver
 webhook events to it. [ngrok](https://ngrok.com/) creates a secure tunnel from a public URL to your
@@ -76,7 +80,7 @@ https://xxxx-xxx-xxx-xxx.ngrok-free.app
 > **Save this value** - you will need the ngrok URL when configuring the webhook endpoint below and
 > in the Quickstart section.
 
-### Step 3: Configure the Webhook Endpoint and Subscribe to Entities
+#### Step 3: Configure the Webhook Endpoint and Subscribe to Entities
 
 1. On your app's page in the developer dashboard, go to the **Webhooks** tab.
 2. Set the **Endpoint URL** to your ngrok URL from Step 2.
@@ -88,7 +92,7 @@ https://xxxx-xxx-xxx-xxx.ngrok-free.app
    depending on the entity).
 5. Save the configuration.
 
-### Step 4: Retrieve the Webhook Verifier Token
+#### Step 4: Retrieve the Webhook Verifier Token
 
 QuickBooks signs webhook deliveries using a **Webhook Verifier Token**, which is a separate
 credential from your app's OAuth **Client Secret** - don't confuse the two, they aren't

@@ -6,34 +6,126 @@
 
 ## Overview
 
-The [Ballerina](https://ballerina.io/) listener for QuickBooks allows you to listen to entity change
-events in a QuickBooks Online company, grouped by the accounting object they relate to - 31 entities
-in total (Account, Bill, Invoice, Customer, Payment, and more), each exposing the operations that
-apply to it (created, updated, deleted, merged, voided, or emailed, depending on the entity). See
-[`ballerina/README.md`](ballerina/README.md) for the full list of service types and remote
-functions.
+The [Ballerina](https://ballerina.io/) listener for QuickBooks allows you to listen to entity change events in a QuickBooks Online company, grouped by the accounting object they relate to.
+
+* **Account** (`AccountService`): `onAccountCreated`, `onAccountUpdated`, `onAccountDeleted`, `onAccountMerged`
+* **Bill** (`BillService`): `onBillCreated`, `onBillUpdated`, `onBillDeleted`
+* **BillPayment** (`BillPaymentService`): `onBillPaymentCreated`, `onBillPaymentUpdated`, `onBillPaymentDeleted`, `onBillPaymentVoided`
+* **Budget** (`BudgetService`): `onBudgetCreated`, `onBudgetUpdated`
+* **ChangeOrder** (`ChangeOrderService`): `onChangeOrderCreated`, `onChangeOrderUpdated`, `onChangeOrderDeleted`
+* **Class** (`ClassService`): `onClassCreated`, `onClassUpdated`, `onClassDeleted`, `onClassMerged`
+* **CompanyCurrency** (`CompanyCurrencyService`): `onCompanyCurrencyCreated`, `onCompanyCurrencyUpdated`, `onCompanyCurrencyDeleted`
+* **CreditMemo** (`CreditMemoService`): `onCreditMemoCreated`, `onCreditMemoUpdated`, `onCreditMemoDeleted`, `onCreditMemoVoided`, `onCreditMemoEmailed`
+* **Currency** (`CurrencyService`): `onCurrencyCreated`, `onCurrencyUpdated`, `onCurrencyDeleted`
+* **Customer** (`CustomerService`): `onCustomerCreated`, `onCustomerUpdated`, `onCustomerDeleted`, `onCustomerMerged`
+* **Department** (`DepartmentService`): `onDepartmentCreated`, `onDepartmentUpdated`, `onDepartmentMerged`
+* **Deposit** (`DepositService`): `onDepositCreated`, `onDepositUpdated`, `onDepositDeleted`
+* **Employee** (`EmployeeService`): `onEmployeeCreated`, `onEmployeeUpdated`, `onEmployeeDeleted`, `onEmployeeMerged`
+* **Estimate** (`EstimateService`): `onEstimateCreated`, `onEstimateUpdated`, `onEstimateDeleted`, `onEstimateEmailed`
+* **Invoice** (`InvoiceService`): `onInvoiceCreated`, `onInvoiceUpdated`, `onInvoiceDeleted`, `onInvoiceVoided`, `onInvoiceEmailed`
+* **Item** (`ItemService`): `onItemCreated`, `onItemUpdated`, `onItemDeleted`, `onItemMerged`
+* **JournalCode** (`JournalCodeService`): `onJournalCodeCreated`, `onJournalCodeUpdated`
+* **JournalEntry** (`JournalEntryService`): `onJournalEntryCreated`, `onJournalEntryUpdated`, `onJournalEntryDeleted`
+* **Payment** (`PaymentService`): `onPaymentCreated`, `onPaymentUpdated`, `onPaymentDeleted`, `onPaymentVoided`, `onPaymentEmailed`
+* **PaymentMethod** (`PaymentMethodService`): `onPaymentMethodCreated`, `onPaymentMethodUpdated`, `onPaymentMethodMerged`
+* **Preferences** (`PreferencesService`): `onPreferencesUpdated`
+* **Purchase** (`PurchaseService`): `onPurchaseCreated`, `onPurchaseUpdated`, `onPurchaseDeleted`, `onPurchaseVoided`
+* **PurchaseOrder** (`PurchaseOrderService`): `onPurchaseOrderCreated`, `onPurchaseOrderUpdated`, `onPurchaseOrderDeleted`, `onPurchaseOrderEmailed`
+* **RefundReceipt** (`RefundReceiptService`): `onRefundReceiptCreated`, `onRefundReceiptUpdated`, `onRefundReceiptDeleted`, `onRefundReceiptVoided`, `onRefundReceiptEmailed`
+* **SalesReceipt** (`SalesReceiptService`): `onSalesReceiptCreated`, `onSalesReceiptUpdated`, `onSalesReceiptDeleted`, `onSalesReceiptVoided`, `onSalesReceiptEmailed`
+* **TaxAgency** (`TaxAgencyService`): `onTaxAgencyCreated`, `onTaxAgencyUpdated`
+* **Term** (`TermService`): `onTermCreated`, `onTermUpdated`
+* **TimeActivity** (`TimeActivityService`): `onTimeActivityCreated`, `onTimeActivityUpdated`, `onTimeActivityDeleted`
+* **Transfer** (`TransferService`): `onTransferCreated`, `onTransferUpdated`, `onTransferDeleted`, `onTransferVoided`
+* **Vendor** (`VendorService`): `onVendorCreated`, `onVendorUpdated`, `onVendorDeleted`, `onVendorMerged`
+* **VendorCredit** (`VendorCreditService`): `onVendorCreditCreated`, `onVendorCreditUpdated`, `onVendorCreditDeleted`
 
 This module receives QuickBooks' CloudEvents-formatted webhook notifications directly, batched into
 a single delivery when multiple events occur close together - it does not call QuickBooks' own
 Accounting API on your behalf, and the notification itself carries only the changed entity's ID, not
-its full data.
+its full data (QuickBooks webhooks are notification-only by design; fetch the entity separately via
+the Accounting API if you need its contents).
 
 ## Setup guide
 
 Before using this connector in your Ballerina application, you need an Intuit developer account and
 app, a QuickBooks sandbox company to generate real events against, and a Ballerina service that
-QuickBooks can reach over the internet to deliver webhook payloads to.
+QuickBooks can reach over the internet to deliver webhook payloads to. The two sections below cover
+both a quick local test setup and a production deployment.
 
-1. [Sign up for an Intuit Developer account](https://developer.intuit.com/) and create a new app for
-   the QuickBooks Online Accounting API. A sandbox company is created automatically for testing.
-2. Set up [ngrok](https://ngrok.com/) (`ngrok http 8090`) to expose your local Ballerina listener.
-3. On the app's **Webhooks** tab, set the endpoint URL to your ngrok URL, make sure the payload
-   format is **CloudEvents** (not the legacy format), and select the entities you want events for.
-4. Retrieve the **Webhook Verifier Token** from the same tab - this is a separate credential from
-   your app's OAuth Client Secret, and is the value this connector calls `webhookSecret`.
+### Try it out locally
 
-See [`ballerina/README.md`](ballerina/README.md) for the full step-by-step guide, including
-production deployment notes.
+Use this flow to test your webhook handling logic on your own machine before deploying anywhere,
+using [ngrok](https://ngrok.com/) to expose your local listener to the internet.
+
+#### Step 1: Create an Intuit Developer Account and App
+
+1. [Sign up for an Intuit Developer account](https://developer.intuit.com/) if you don't already have one.
+2. Create a new app from the developer dashboard, selecting the QuickBooks Online Accounting API.
+3. Under **Sandbox**, note the sandbox company QuickBooks creates automatically for your app - this
+   is where you'll trigger real test events (creating/updating/deleting invoices, customers, etc.).
+
+#### Step 2: Set Up ngrok
+
+The Ballerina listener runs locally and needs a publicly accessible URL so QuickBooks can deliver
+webhook events to it. [ngrok](https://ngrok.com/) creates a secure tunnel from a public URL to your
+local service.
+
+Install ngrok and start a tunnel on port `8090` (the default port for the Ballerina listener):
+
+```sh
+ngrok http 8090
+```
+
+Copy the HTTPS forwarding URL from the ngrok terminal output. It looks like:
+
+```text
+https://xxxx-xxx-xxx-xxx.ngrok-free.app
+```
+
+> **Save this value** - you will need the ngrok URL when configuring the webhook endpoint below and
+> in the Quickstart section.
+
+#### Step 3: Configure the Webhook Endpoint and Subscribe to Entities
+
+1. On your app's page in the developer dashboard, go to the **Webhooks** tab.
+2. Set the **Endpoint URL** to your ngrok URL from Step 2.
+3. Make sure the payload format is set to **CloudEvents** rather than the legacy format - QuickBooks
+   is retiring the legacy envelope, and this connector only supports CloudEvents (see
+   `docs/spec/sanitations.md` for why).
+4. Select the entities you want to receive events for (Invoice, Customer, Bill, etc.) - each entity
+   expands to show the specific operations available for it (created, updated, deleted, and so on
+   depending on the entity).
+5. Save the configuration.
+
+#### Step 4: Retrieve the Webhook Verifier Token
+
+QuickBooks signs webhook deliveries using a **Webhook Verifier Token**, which is a separate
+credential from your app's OAuth **Client Secret** - don't confuse the two, they aren't
+interchangeable.
+
+1. On the same **Webhooks** tab, click **Show verifier token** (or equivalent) next to your
+   configured endpoint.
+2. Copy the verifier token.
+
+> **Save this value** - you will need it in the Quickstart section when initialising the Ballerina
+> listener. This is the value the listener calls `webhookSecret`.
+
+### Production / business integration
+
+The steps above use ngrok's temporary URL, which is fine for local testing but not for a real
+deployment. For production use:
+
+1. Deploy your Ballerina service somewhere with a stable, internet-reachable HTTPS URL. Ballerina
+   doesn't require any specific hosting platform - containers, a VM, a managed PaaS, or anything
+   else that gives you a stable HTTPS endpoint all work equally well.
+
+2. In the app's **Webhooks** tab (Step 3), set the **Endpoint URL** to your production URL instead
+   of the ngrok URL.
+
+3. Rather than hardcoding `webhookSecret` as shown in the Quickstart, inject it via `Config.toml`
+   (or your platform's equivalent configuration/secret mechanism), since it's a `configurable`
+   value.
 
 ### Compatibility
 
