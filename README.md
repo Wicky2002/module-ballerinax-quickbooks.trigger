@@ -1,8 +1,8 @@
-# Ballerina Trigger.quickbooks connector
+# Ballerina Quickbooks.trigger connector
 
 [![Build](https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger/actions/workflows/ci.yml/badge.svg)](https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger/actions/workflows/ci.yml)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/ballerina-platform/module-ballerinax-quickbooks.trigger.svg)](https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger/commits/master)
-[![GitHub Issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-library/module/trigger.quickbooks.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-library/labels/module%trigger.quickbooks)
+[![GitHub Issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-library/module/quickbooks.trigger.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-library/labels/module%quickbooks.trigger)
 
 ## Overview
 
@@ -44,7 +44,7 @@ production deployment notes.
 ## Quickstart
 
 ```ballerina
-import ballerinax/trigger.quickbooks;
+import ballerinax/quickbooks.trigger as quickbooks;
 import ballerina/io;
 
 configurable string webhookSecret = ?;
@@ -79,7 +79,7 @@ functions - see [`ballerina/README.md`](ballerina/README.md) for the full Quicks
 
 ## Examples
 
-The `trigger.quickbooks` module provides practical examples illustrating usage in various scenarios.
+The `quickbooks.trigger` module provides practical examples illustrating usage in various scenarios.
 Explore these [examples](https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger/tree/main/examples/),
 covering common webhook event handling use cases.
 
@@ -171,7 +171,7 @@ All the contributors are encouraged to read the [Ballerina Code of Conduct](http
 
 ## Useful links
 
-* For more information go to the [`trigger.quickbooks` package](https://central.ballerina.io/ballerinax/trigger.quickbooks/latest).
+* For more information go to the [`quickbooks.trigger` package](https://central.ballerina.io/ballerinax/quickbooks.trigger/latest).
 * See the [migration notes](docs/migration-notes.md) for context on this package's move from the asyncapi-triggers monorepo and its rewrite for QuickBooks' CloudEvents webhook format.
 * For example demonstrations of the usage, go to [Ballerina By Examples](https://ballerina.io/learn/by-example/).
 * Chat live with us via our [Discord server](https://discord.gg/ballerinalang).

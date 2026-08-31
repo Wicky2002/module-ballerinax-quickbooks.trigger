@@ -1,5 +1,5 @@
 import ballerina/log;
-import ballerinax/trigger.quickbooks;
+import ballerinax/quickbooks.trigger as quickbooks;
 
 configurable quickbooks:ListenerConfig config = {
     webhookSecret: "xxxxxx"

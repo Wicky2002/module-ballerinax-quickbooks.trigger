@@ -58,7 +58,7 @@ allprojects {
 def moduleVersion = project.version.replace("-SNAPSHOT", "")
 
 task build {
-    dependsOn(':trigger.quickbooks-ballerina:build')
+    dependsOn(':quickbooks.trigger-ballerina:build')
 }
 
 release {

@@ -29,9 +29,9 @@ plugins {
 
 rootProject.name = 'module-ballerinax-quickbooks.trigger'
 
-include ':trigger.quickbooks-ballerina'
+include ':quickbooks.trigger-ballerina'
 
-project(':trigger.quickbooks-ballerina').projectDir = file("ballerina")
+project(':quickbooks.trigger-ballerina').projectDir = file("ballerina")
 
 gradleEnterprise {
     buildScan {

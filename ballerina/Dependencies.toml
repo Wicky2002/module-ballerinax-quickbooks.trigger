@@ -361,7 +361,7 @@ modules = [
 
 [[package]]
 org = "ballerinax"
-name = "trigger.quickbooks"
+name = "quickbooks.trigger"
 version = "0.1.0"
 dependencies = [
 	{org = "ballerina", name = "cloud"},
@@ -375,6 +375,6 @@ dependencies = [
 	{org = "ballerinax", name = "asyncapi.native.handler"}
 ]
 modules = [
-	{org = "ballerinax", packageName = "trigger.quickbooks", moduleName = "trigger.quickbooks"}
+	{org = "ballerinax", packageName = "quickbooks.trigger", moduleName = "quickbooks.trigger"}
 ]
 

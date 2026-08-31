@@ -1,6 +1,6 @@
 # Examples
 
-The `ballerinax/trigger.quickbooks` connector provides practical examples illustrating usage in various scenarios.
+The `ballerinax/quickbooks.trigger` connector provides practical examples illustrating usage in various scenarios.
 
 1. [Invoice lifecycle logger](invoice-lifecycle-logger) - the minimal, canonical use case: log every `Invoice` lifecycle event.
 2. [Customer sync notifier](customer-sync-notifier) - notify on customer creation and merges, a starting point for CRM-sync automation.

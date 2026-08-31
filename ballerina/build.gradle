@@ -22,9 +22,9 @@ plugins {
     id 'io.ballerina.plugin'
 }
 
-description = 'Trigger.quickbooks - Ballerina'
+description = 'Quickbooks.trigger - Ballerina'
 
-def packageName = "trigger.quickbooks"
+def packageName = "quickbooks.trigger"
 def packageOrg = "ballerinax"
 def tomlVersion = stripBallerinaExtensionVersion("${project.version}")
 def ballerinaTomlFilePlaceHolder = new File("${project.rootDir}/build-config/resources/Ballerina.toml")
@@ -82,9 +82,6 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            // Repo name (module-ballerinax-quickbooks.trigger) doesn't follow module-<org>-<packageName>
-            // here - the package itself is named trigger.quickbooks, not quickbooks.trigger - so the repo
-            // name is spelled out explicitly instead of interpolated from packageName.
             url = uri("https://maven.pkg.github.com/ballerina-platform/module-ballerinax-quickbooks.trigger")
             credentials {
                 username = System.getenv("publishUser")

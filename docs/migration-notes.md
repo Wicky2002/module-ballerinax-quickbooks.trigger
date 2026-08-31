@@ -1,6 +1,6 @@
 # Migration notes: moved from the asyncapi-triggers monorepo, rewritten for CloudEvents
 
-This is the first release of `trigger.quickbooks` as its own repository, migrated out of
+This is the first release of `quickbooks.trigger` as its own repository, migrated out of
 `ballerina-platform/asyncapi-triggers`. Unlike some other triggers migrated the same way, this
 wasn't a straight move — the spec (`docs/spec/asyncapi.yaml`) was rewritten from scratch to target
 QuickBooks' new CloudEvents-based webhook format instead of the legacy `eventNotifications`

@@ -134,10 +134,10 @@ Before running the quickstart, ensure you have:
 
 ### Step 1: Import listener
 
-To import the `ballerinax/trigger.quickbooks` module into the Ballerina project, add the following statement:
+To import the `ballerinax/quickbooks.trigger` module into the Ballerina project, add the following statement:
 
 ```ballerina
-import ballerinax/trigger.quickbooks;
+import ballerinax/quickbooks.trigger as quickbooks;
 import ballerina/io;
 ```
 
@@ -213,7 +213,7 @@ Invoice, Customer, or Bill. You should see the event printed in the Ballerina co
 
 ## Examples
 
-The `trigger.quickbooks` module provides practical examples illustrating usage in various scenarios.
+The `quickbooks.trigger` module provides practical examples illustrating usage in various scenarios.
 Explore these [examples](https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger/tree/main/examples/),
 covering common webhook event handling use cases.
 
@@ -223,7 +223,7 @@ To report bugs, request new features, start new discussions, etc., go to the [Ba
 
 ## Useful links
 
-- For more information go to the [`trigger.quickbooks` package](https://central.ballerina.io/ballerinax/trigger.quickbooks/latest).
+- For more information go to the [`quickbooks.trigger` package](https://central.ballerina.io/ballerinax/quickbooks.trigger/latest).
 - See the [migration notes](https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger/blob/main/docs/migration-notes.md) for context on this package's move from the asyncapi-triggers monorepo and its rewrite for QuickBooks' CloudEvents webhook format.
 - For example demonstrations of the usage, go to [Ballerina By Examples](https://ballerina.io/learn/by-example/).
 - Chat live with us via our [Discord server](https://discord.gg/ballerinalang).

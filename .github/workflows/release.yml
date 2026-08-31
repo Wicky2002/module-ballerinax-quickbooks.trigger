@@ -16,5 +16,5 @@ jobs:
       BALLERINA_BOT_USERNAME: ${{ secrets.BALLERINA_BOT_USERNAME }}
       BALLERINA_CENTRAL_ACCESS_TOKEN: ${{ secrets.BALLERINA_CENTRAL_ACCESS_TOKEN }}
     with:
-      package-name: trigger.quickbooks
+      package-name: quickbooks.trigger
       package-org: ballerinax

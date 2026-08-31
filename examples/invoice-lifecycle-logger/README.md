@@ -1,7 +1,7 @@
 # Invoice lifecycle logger
 
 Logs every `Invoice` lifecycle event (created, updated, deleted, voided, emailed) as it arrives -
-the minimal, canonical use case for the `trigger.quickbooks` listener.
+the minimal, canonical use case for the `quickbooks.trigger` listener.
 
 ## Prerequisites
 
