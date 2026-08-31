@@ -62,8 +62,11 @@ using [ngrok](https://ngrok.com/) to expose your local listener to the internet.
 
 1. [Sign up for an Intuit Developer account](https://developer.intuit.com/) if you don't already have one.
 2. Create a new app from the developer dashboard, selecting the QuickBooks Online Accounting API.
-3. Under **Sandbox**, note the sandbox company QuickBooks creates automatically for your app - this
-   is where you'll trigger real test events (creating/updating/deleting invoices, customers, etc.).
+3. From the top-nav **My Hub** menu, select **Sandboxes** - this is account-level, not nested under
+   the app. A sandbox company is created automatically here; this is where you'll trigger real test
+   events (creating/updating/deleting invoices, customers, etc.).
+
+   <img src="https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-quickbooks.trigger/main/docs/setup/resources/intuit-sandbox-company.png" alt="Intuit Developer Sandbox companies page showing an auto-created sandbox company" width="600">
 
 #### Step 2: Set Up ngrok
 
@@ -83,6 +86,8 @@ Copy the HTTPS forwarding URL from the ngrok terminal output. It looks like:
 https://xxxx-xxx-xxx-xxx.ngrok-free.app
 ```
 
+<img src="https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-quickbooks.trigger/main/docs/setup/resources/ngrok-forwarding.png" alt="ngrok forwarding a public URL to localhost:8090" width="600">
+
 > **Save this value** - you will need the ngrok URL when configuring the webhook endpoint below and
 > in the Quickstart section.
 
@@ -98,6 +103,8 @@ https://xxxx-xxx-xxx-xxx.ngrok-free.app
    depending on the entity).
 5. Save the configuration.
 
+   <img src="https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-quickbooks.trigger/main/docs/setup/resources/webhook-endpoint-config.png" alt="QuickBooks app Webhooks tab with the endpoint URL, CloudEvents payload format, and subscribed entities configured" width="600">
+
 #### Step 4: Retrieve the Webhook Verifier Token
 
 QuickBooks signs webhook deliveries using a **Webhook Verifier Token**, which is a separate
@@ -107,6 +114,8 @@ interchangeable.
 1. On the same **Webhooks** tab, click **Show verifier token** (or equivalent) next to your
    configured endpoint.
 2. Copy the verifier token.
+
+   <img src="https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-quickbooks.trigger/main/docs/setup/resources/webhook-verifier-token.png" alt="QuickBooks app Webhooks tab with the verifier token revealed (value blurred)" width="600">
 
 > **Save this value** - you will need it in the Quickstart section when initialising the Ballerina
 > listener. This is the value the listener calls `webhookSecret`.
@@ -168,6 +177,11 @@ service quickbooks:InvoiceService on quickbooksWebhook {
 
 A service attached to a listener's service type must implement **all** of that type's remote
 functions - see [`ballerina/README.md`](ballerina/README.md) for the full Quickstart walkthrough.
+
+To verify it is working, go to your **QuickBooks sandbox company** and create, update, or delete an
+Invoice. You should see the event printed in the Ballerina console output.
+
+<img src="https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-quickbooks.trigger/main/docs/setup/resources/webhook-confirmed.png" alt="Ballerina console output showing a real QuickBooks webhook event dispatched successfully" width="600">
 
 ## Examples
 
