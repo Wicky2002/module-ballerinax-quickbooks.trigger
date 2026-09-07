@@ -1,4 +1,4 @@
-_Author_:  Dinuka Wickramarathna \
+_Author_:  Dinuka Wickramasinghe \
 _Created_: 2026-08-28 \
 _Updated_: 2026-08-28 \
 _Edition_: Swan Lake
