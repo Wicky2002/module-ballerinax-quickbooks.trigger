@@ -2,7 +2,6 @@ asyncapi: 3.0.0
 x-ballerina-event-identifier:
   type: body
   path: type
-  batched: true
 x-ballerina-auth:
   header: Intuit-Signature
   signature:
@@ -28,13 +27,13 @@ channels:
     description: QuickBooks Account entity change notifications.
     messages:
       accountCreate:
-        $ref: '#/components/messages/AccountCreateMessage'
+          $ref: '#/components/messages/AccountCreateMessage'
       accountUpdate:
-        $ref: '#/components/messages/AccountUpdateMessage'
+          $ref: '#/components/messages/AccountUpdateMessage'
       accountDelete:
-        $ref: '#/components/messages/AccountDeleteMessage'
+          $ref: '#/components/messages/AccountDeleteMessage'
       accountMerge:
-        $ref: '#/components/messages/AccountMergeMessage'
+          $ref: '#/components/messages/AccountMergeMessage'
     bindings:
       http:
         method: POST
@@ -43,11 +42,11 @@ channels:
     description: QuickBooks Bill entity change notifications.
     messages:
       billCreate:
-        $ref: '#/components/messages/BillCreateMessage'
+          $ref: '#/components/messages/BillCreateMessage'
       billUpdate:
-        $ref: '#/components/messages/BillUpdateMessage'
+          $ref: '#/components/messages/BillUpdateMessage'
       billDelete:
-        $ref: '#/components/messages/BillDeleteMessage'
+          $ref: '#/components/messages/BillDeleteMessage'
     bindings:
       http:
         method: POST
@@ -56,13 +55,13 @@ channels:
     description: QuickBooks BillPayment entity change notifications.
     messages:
       billPaymentCreate:
-        $ref: '#/components/messages/BillPaymentCreateMessage'
+          $ref: '#/components/messages/BillPaymentCreateMessage'
       billPaymentUpdate:
-        $ref: '#/components/messages/BillPaymentUpdateMessage'
+          $ref: '#/components/messages/BillPaymentUpdateMessage'
       billPaymentDelete:
-        $ref: '#/components/messages/BillPaymentDeleteMessage'
+          $ref: '#/components/messages/BillPaymentDeleteMessage'
       billPaymentVoid:
-        $ref: '#/components/messages/BillPaymentVoidMessage'
+          $ref: '#/components/messages/BillPaymentVoidMessage'
     bindings:
       http:
         method: POST
@@ -71,9 +70,9 @@ channels:
     description: QuickBooks Budget entity change notifications.
     messages:
       budgetCreate:
-        $ref: '#/components/messages/BudgetCreateMessage'
+          $ref: '#/components/messages/BudgetCreateMessage'
       budgetUpdate:
-        $ref: '#/components/messages/BudgetUpdateMessage'
+          $ref: '#/components/messages/BudgetUpdateMessage'
     bindings:
       http:
         method: POST
@@ -82,11 +81,11 @@ channels:
     description: QuickBooks ChangeOrder entity change notifications.
     messages:
       changeOrderCreate:
-        $ref: '#/components/messages/ChangeOrderCreateMessage'
+          $ref: '#/components/messages/ChangeOrderCreateMessage'
       changeOrderUpdate:
-        $ref: '#/components/messages/ChangeOrderUpdateMessage'
+          $ref: '#/components/messages/ChangeOrderUpdateMessage'
       changeOrderDelete:
-        $ref: '#/components/messages/ChangeOrderDeleteMessage'
+          $ref: '#/components/messages/ChangeOrderDeleteMessage'
     bindings:
       http:
         method: POST
@@ -95,13 +94,13 @@ channels:
     description: QuickBooks Class entity change notifications.
     messages:
       classCreate:
-        $ref: '#/components/messages/ClassCreateMessage'
+          $ref: '#/components/messages/ClassCreateMessage'
       classUpdate:
-        $ref: '#/components/messages/ClassUpdateMessage'
+          $ref: '#/components/messages/ClassUpdateMessage'
       classDelete:
-        $ref: '#/components/messages/ClassDeleteMessage'
+          $ref: '#/components/messages/ClassDeleteMessage'
       classMerge:
-        $ref: '#/components/messages/ClassMergeMessage'
+          $ref: '#/components/messages/ClassMergeMessage'
     bindings:
       http:
         method: POST
@@ -110,15 +109,15 @@ channels:
     description: QuickBooks CreditMemo entity change notifications.
     messages:
       creditMemoCreate:
-        $ref: '#/components/messages/CreditMemoCreateMessage'
+          $ref: '#/components/messages/CreditMemoCreateMessage'
       creditMemoUpdate:
-        $ref: '#/components/messages/CreditMemoUpdateMessage'
+          $ref: '#/components/messages/CreditMemoUpdateMessage'
       creditMemoDelete:
-        $ref: '#/components/messages/CreditMemoDeleteMessage'
+          $ref: '#/components/messages/CreditMemoDeleteMessage'
       creditMemoVoid:
-        $ref: '#/components/messages/CreditMemoVoidMessage'
+          $ref: '#/components/messages/CreditMemoVoidMessage'
       creditMemoEmail:
-        $ref: '#/components/messages/CreditMemoEmailMessage'
+          $ref: '#/components/messages/CreditMemoEmailMessage'
     bindings:
       http:
         method: POST
@@ -127,11 +126,11 @@ channels:
     description: QuickBooks Currency entity change notifications.
     messages:
       currencyCreate:
-        $ref: '#/components/messages/CurrencyCreateMessage'
+          $ref: '#/components/messages/CurrencyCreateMessage'
       currencyUpdate:
-        $ref: '#/components/messages/CurrencyUpdateMessage'
+          $ref: '#/components/messages/CurrencyUpdateMessage'
       currencyDelete:
-        $ref: '#/components/messages/CurrencyDeleteMessage'
+          $ref: '#/components/messages/CurrencyDeleteMessage'
     bindings:
       http:
         method: POST
@@ -140,13 +139,13 @@ channels:
     description: QuickBooks Customer entity change notifications.
     messages:
       customerCreate:
-        $ref: '#/components/messages/CustomerCreateMessage'
+          $ref: '#/components/messages/CustomerCreateMessage'
       customerUpdate:
-        $ref: '#/components/messages/CustomerUpdateMessage'
+          $ref: '#/components/messages/CustomerUpdateMessage'
       customerDelete:
-        $ref: '#/components/messages/CustomerDeleteMessage'
+          $ref: '#/components/messages/CustomerDeleteMessage'
       customerMerge:
-        $ref: '#/components/messages/CustomerMergeMessage'
+          $ref: '#/components/messages/CustomerMergeMessage'
     bindings:
       http:
         method: POST
@@ -155,11 +154,11 @@ channels:
     description: QuickBooks Department entity change notifications.
     messages:
       departmentCreate:
-        $ref: '#/components/messages/DepartmentCreateMessage'
+          $ref: '#/components/messages/DepartmentCreateMessage'
       departmentUpdate:
-        $ref: '#/components/messages/DepartmentUpdateMessage'
+          $ref: '#/components/messages/DepartmentUpdateMessage'
       departmentMerge:
-        $ref: '#/components/messages/DepartmentMergeMessage'
+          $ref: '#/components/messages/DepartmentMergeMessage'
     bindings:
       http:
         method: POST
@@ -168,11 +167,11 @@ channels:
     description: QuickBooks Deposit entity change notifications.
     messages:
       depositCreate:
-        $ref: '#/components/messages/DepositCreateMessage'
+          $ref: '#/components/messages/DepositCreateMessage'
       depositUpdate:
-        $ref: '#/components/messages/DepositUpdateMessage'
+          $ref: '#/components/messages/DepositUpdateMessage'
       depositDelete:
-        $ref: '#/components/messages/DepositDeleteMessage'
+          $ref: '#/components/messages/DepositDeleteMessage'
     bindings:
       http:
         method: POST
@@ -181,13 +180,13 @@ channels:
     description: QuickBooks Employee entity change notifications.
     messages:
       employeeCreate:
-        $ref: '#/components/messages/EmployeeCreateMessage'
+          $ref: '#/components/messages/EmployeeCreateMessage'
       employeeUpdate:
-        $ref: '#/components/messages/EmployeeUpdateMessage'
+          $ref: '#/components/messages/EmployeeUpdateMessage'
       employeeDelete:
-        $ref: '#/components/messages/EmployeeDeleteMessage'
+          $ref: '#/components/messages/EmployeeDeleteMessage'
       employeeMerge:
-        $ref: '#/components/messages/EmployeeMergeMessage'
+          $ref: '#/components/messages/EmployeeMergeMessage'
     bindings:
       http:
         method: POST
@@ -196,13 +195,13 @@ channels:
     description: QuickBooks Estimate entity change notifications.
     messages:
       estimateCreate:
-        $ref: '#/components/messages/EstimateCreateMessage'
+          $ref: '#/components/messages/EstimateCreateMessage'
       estimateUpdate:
-        $ref: '#/components/messages/EstimateUpdateMessage'
+          $ref: '#/components/messages/EstimateUpdateMessage'
       estimateDelete:
-        $ref: '#/components/messages/EstimateDeleteMessage'
+          $ref: '#/components/messages/EstimateDeleteMessage'
       estimateEmail:
-        $ref: '#/components/messages/EstimateEmailMessage'
+          $ref: '#/components/messages/EstimateEmailMessage'
     bindings:
       http:
         method: POST
@@ -211,15 +210,15 @@ channels:
     description: QuickBooks Invoice entity change notifications.
     messages:
       invoiceCreate:
-        $ref: '#/components/messages/InvoiceCreateMessage'
+          $ref: '#/components/messages/InvoiceCreateMessage'
       invoiceUpdate:
-        $ref: '#/components/messages/InvoiceUpdateMessage'
+          $ref: '#/components/messages/InvoiceUpdateMessage'
       invoiceDelete:
-        $ref: '#/components/messages/InvoiceDeleteMessage'
+          $ref: '#/components/messages/InvoiceDeleteMessage'
       invoiceVoid:
-        $ref: '#/components/messages/InvoiceVoidMessage'
+          $ref: '#/components/messages/InvoiceVoidMessage'
       invoiceEmail:
-        $ref: '#/components/messages/InvoiceEmailMessage'
+          $ref: '#/components/messages/InvoiceEmailMessage'
     bindings:
       http:
         method: POST
@@ -228,13 +227,13 @@ channels:
     description: QuickBooks Item entity change notifications.
     messages:
       itemCreate:
-        $ref: '#/components/messages/ItemCreateMessage'
+          $ref: '#/components/messages/ItemCreateMessage'
       itemUpdate:
-        $ref: '#/components/messages/ItemUpdateMessage'
+          $ref: '#/components/messages/ItemUpdateMessage'
       itemDelete:
-        $ref: '#/components/messages/ItemDeleteMessage'
+          $ref: '#/components/messages/ItemDeleteMessage'
       itemMerge:
-        $ref: '#/components/messages/ItemMergeMessage'
+          $ref: '#/components/messages/ItemMergeMessage'
     bindings:
       http:
         method: POST
@@ -243,9 +242,9 @@ channels:
     description: QuickBooks JournalCode entity change notifications.
     messages:
       journalCodeCreate:
-        $ref: '#/components/messages/JournalCodeCreateMessage'
+          $ref: '#/components/messages/JournalCodeCreateMessage'
       journalCodeUpdate:
-        $ref: '#/components/messages/JournalCodeUpdateMessage'
+          $ref: '#/components/messages/JournalCodeUpdateMessage'
     bindings:
       http:
         method: POST
@@ -254,11 +253,11 @@ channels:
     description: QuickBooks JournalEntry entity change notifications.
     messages:
       journalEntryCreate:
-        $ref: '#/components/messages/JournalEntryCreateMessage'
+          $ref: '#/components/messages/JournalEntryCreateMessage'
       journalEntryUpdate:
-        $ref: '#/components/messages/JournalEntryUpdateMessage'
+          $ref: '#/components/messages/JournalEntryUpdateMessage'
       journalEntryDelete:
-        $ref: '#/components/messages/JournalEntryDeleteMessage'
+          $ref: '#/components/messages/JournalEntryDeleteMessage'
     bindings:
       http:
         method: POST
@@ -267,15 +266,15 @@ channels:
     description: QuickBooks Payment entity change notifications.
     messages:
       paymentCreate:
-        $ref: '#/components/messages/PaymentCreateMessage'
+          $ref: '#/components/messages/PaymentCreateMessage'
       paymentUpdate:
-        $ref: '#/components/messages/PaymentUpdateMessage'
+          $ref: '#/components/messages/PaymentUpdateMessage'
       paymentDelete:
-        $ref: '#/components/messages/PaymentDeleteMessage'
+          $ref: '#/components/messages/PaymentDeleteMessage'
       paymentVoid:
-        $ref: '#/components/messages/PaymentVoidMessage'
+          $ref: '#/components/messages/PaymentVoidMessage'
       paymentEmail:
-        $ref: '#/components/messages/PaymentEmailMessage'
+          $ref: '#/components/messages/PaymentEmailMessage'
     bindings:
       http:
         method: POST
@@ -284,11 +283,11 @@ channels:
     description: QuickBooks PaymentMethod entity change notifications.
     messages:
       paymentMethodCreate:
-        $ref: '#/components/messages/PaymentMethodCreateMessage'
+          $ref: '#/components/messages/PaymentMethodCreateMessage'
       paymentMethodUpdate:
-        $ref: '#/components/messages/PaymentMethodUpdateMessage'
+          $ref: '#/components/messages/PaymentMethodUpdateMessage'
       paymentMethodMerge:
-        $ref: '#/components/messages/PaymentMethodMergeMessage'
+          $ref: '#/components/messages/PaymentMethodMergeMessage'
     bindings:
       http:
         method: POST
@@ -297,7 +296,7 @@ channels:
     description: QuickBooks Preferences entity change notifications.
     messages:
       preferencesUpdate:
-        $ref: '#/components/messages/PreferencesUpdateMessage'
+          $ref: '#/components/messages/PreferencesUpdateMessage'
     bindings:
       http:
         method: POST
@@ -306,13 +305,13 @@ channels:
     description: QuickBooks Purchase entity change notifications.
     messages:
       purchaseCreate:
-        $ref: '#/components/messages/PurchaseCreateMessage'
+          $ref: '#/components/messages/PurchaseCreateMessage'
       purchaseUpdate:
-        $ref: '#/components/messages/PurchaseUpdateMessage'
+          $ref: '#/components/messages/PurchaseUpdateMessage'
       purchaseDelete:
-        $ref: '#/components/messages/PurchaseDeleteMessage'
+          $ref: '#/components/messages/PurchaseDeleteMessage'
       purchaseVoid:
-        $ref: '#/components/messages/PurchaseVoidMessage'
+          $ref: '#/components/messages/PurchaseVoidMessage'
     bindings:
       http:
         method: POST
@@ -321,13 +320,13 @@ channels:
     description: QuickBooks PurchaseOrder entity change notifications.
     messages:
       purchaseOrderCreate:
-        $ref: '#/components/messages/PurchaseOrderCreateMessage'
+          $ref: '#/components/messages/PurchaseOrderCreateMessage'
       purchaseOrderUpdate:
-        $ref: '#/components/messages/PurchaseOrderUpdateMessage'
+          $ref: '#/components/messages/PurchaseOrderUpdateMessage'
       purchaseOrderDelete:
-        $ref: '#/components/messages/PurchaseOrderDeleteMessage'
+          $ref: '#/components/messages/PurchaseOrderDeleteMessage'
       purchaseOrderEmail:
-        $ref: '#/components/messages/PurchaseOrderEmailMessage'
+          $ref: '#/components/messages/PurchaseOrderEmailMessage'
     bindings:
       http:
         method: POST
@@ -336,15 +335,15 @@ channels:
     description: QuickBooks RefundReceipt entity change notifications.
     messages:
       refundReceiptCreate:
-        $ref: '#/components/messages/RefundReceiptCreateMessage'
+          $ref: '#/components/messages/RefundReceiptCreateMessage'
       refundReceiptUpdate:
-        $ref: '#/components/messages/RefundReceiptUpdateMessage'
+          $ref: '#/components/messages/RefundReceiptUpdateMessage'
       refundReceiptDelete:
-        $ref: '#/components/messages/RefundReceiptDeleteMessage'
+          $ref: '#/components/messages/RefundReceiptDeleteMessage'
       refundReceiptVoid:
-        $ref: '#/components/messages/RefundReceiptVoidMessage'
+          $ref: '#/components/messages/RefundReceiptVoidMessage'
       refundReceiptEmail:
-        $ref: '#/components/messages/RefundReceiptEmailMessage'
+          $ref: '#/components/messages/RefundReceiptEmailMessage'
     bindings:
       http:
         method: POST
@@ -353,15 +352,15 @@ channels:
     description: QuickBooks SalesReceipt entity change notifications.
     messages:
       salesReceiptCreate:
-        $ref: '#/components/messages/SalesReceiptCreateMessage'
+          $ref: '#/components/messages/SalesReceiptCreateMessage'
       salesReceiptUpdate:
-        $ref: '#/components/messages/SalesReceiptUpdateMessage'
+          $ref: '#/components/messages/SalesReceiptUpdateMessage'
       salesReceiptDelete:
-        $ref: '#/components/messages/SalesReceiptDeleteMessage'
+          $ref: '#/components/messages/SalesReceiptDeleteMessage'
       salesReceiptVoid:
-        $ref: '#/components/messages/SalesReceiptVoidMessage'
+          $ref: '#/components/messages/SalesReceiptVoidMessage'
       salesReceiptEmail:
-        $ref: '#/components/messages/SalesReceiptEmailMessage'
+          $ref: '#/components/messages/SalesReceiptEmailMessage'
     bindings:
       http:
         method: POST
@@ -370,9 +369,9 @@ channels:
     description: QuickBooks TaxAgency entity change notifications.
     messages:
       taxAgencyCreate:
-        $ref: '#/components/messages/TaxAgencyCreateMessage'
+          $ref: '#/components/messages/TaxAgencyCreateMessage'
       taxAgencyUpdate:
-        $ref: '#/components/messages/TaxAgencyUpdateMessage'
+          $ref: '#/components/messages/TaxAgencyUpdateMessage'
     bindings:
       http:
         method: POST
@@ -381,9 +380,9 @@ channels:
     description: QuickBooks Term entity change notifications.
     messages:
       termCreate:
-        $ref: '#/components/messages/TermCreateMessage'
+          $ref: '#/components/messages/TermCreateMessage'
       termUpdate:
-        $ref: '#/components/messages/TermUpdateMessage'
+          $ref: '#/components/messages/TermUpdateMessage'
     bindings:
       http:
         method: POST
@@ -392,11 +391,11 @@ channels:
     description: QuickBooks TimeActivity entity change notifications.
     messages:
       timeActivityCreate:
-        $ref: '#/components/messages/TimeActivityCreateMessage'
+          $ref: '#/components/messages/TimeActivityCreateMessage'
       timeActivityUpdate:
-        $ref: '#/components/messages/TimeActivityUpdateMessage'
+          $ref: '#/components/messages/TimeActivityUpdateMessage'
       timeActivityDelete:
-        $ref: '#/components/messages/TimeActivityDeleteMessage'
+          $ref: '#/components/messages/TimeActivityDeleteMessage'
     bindings:
       http:
         method: POST
@@ -405,13 +404,13 @@ channels:
     description: QuickBooks Transfer entity change notifications.
     messages:
       transferCreate:
-        $ref: '#/components/messages/TransferCreateMessage'
+          $ref: '#/components/messages/TransferCreateMessage'
       transferUpdate:
-        $ref: '#/components/messages/TransferUpdateMessage'
+          $ref: '#/components/messages/TransferUpdateMessage'
       transferDelete:
-        $ref: '#/components/messages/TransferDeleteMessage'
+          $ref: '#/components/messages/TransferDeleteMessage'
       transferVoid:
-        $ref: '#/components/messages/TransferVoidMessage'
+          $ref: '#/components/messages/TransferVoidMessage'
     bindings:
       http:
         method: POST
@@ -420,11 +419,11 @@ channels:
     description: QuickBooks CompanyCurrency entity change notifications.
     messages:
       companyCurrencyCreate:
-        $ref: '#/components/messages/CompanyCurrencyCreateMessage'
+          $ref: '#/components/messages/CompanyCurrencyCreateMessage'
       companyCurrencyUpdate:
-        $ref: '#/components/messages/CompanyCurrencyUpdateMessage'
+          $ref: '#/components/messages/CompanyCurrencyUpdateMessage'
       companyCurrencyDelete:
-        $ref: '#/components/messages/CompanyCurrencyDeleteMessage'
+          $ref: '#/components/messages/CompanyCurrencyDeleteMessage'
     bindings:
       http:
         method: POST
@@ -433,13 +432,13 @@ channels:
     description: QuickBooks Vendor entity change notifications.
     messages:
       vendorCreate:
-        $ref: '#/components/messages/VendorCreateMessage'
+          $ref: '#/components/messages/VendorCreateMessage'
       vendorUpdate:
-        $ref: '#/components/messages/VendorUpdateMessage'
+          $ref: '#/components/messages/VendorUpdateMessage'
       vendorDelete:
-        $ref: '#/components/messages/VendorDeleteMessage'
+          $ref: '#/components/messages/VendorDeleteMessage'
       vendorMerge:
-        $ref: '#/components/messages/VendorMergeMessage'
+          $ref: '#/components/messages/VendorMergeMessage'
     bindings:
       http:
         method: POST
@@ -448,11 +447,11 @@ channels:
     description: QuickBooks VendorCredit entity change notifications.
     messages:
       vendorCreditCreate:
-        $ref: '#/components/messages/VendorCreditCreateMessage'
+          $ref: '#/components/messages/VendorCreditCreateMessage'
       vendorCreditUpdate:
-        $ref: '#/components/messages/VendorCreditUpdateMessage'
+          $ref: '#/components/messages/VendorCreditUpdateMessage'
       vendorCreditDelete:
-        $ref: '#/components/messages/VendorCreditDeleteMessage'
+          $ref: '#/components/messages/VendorCreditDeleteMessage'
     bindings:
       http:
         method: POST
@@ -760,7 +759,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Account has been created
     AccountUpdateMessage:
       x-ballerina-event-type: qbo.account.updated.v1
@@ -769,7 +770,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Account has been updated
     AccountDeleteMessage:
       x-ballerina-event-type: qbo.account.deleted.v1
@@ -778,7 +781,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Account has been deleted
     AccountMergeMessage:
       x-ballerina-event-type: qbo.account.merged.v1
@@ -787,7 +792,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Account has been merged
     BillCreateMessage:
       x-ballerina-event-type: qbo.bill.created.v1
@@ -796,7 +803,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Bill has been created
     BillUpdateMessage:
       x-ballerina-event-type: qbo.bill.updated.v1
@@ -805,7 +814,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Bill has been updated
     BillDeleteMessage:
       x-ballerina-event-type: qbo.bill.deleted.v1
@@ -814,7 +825,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Bill has been deleted
     BillPaymentCreateMessage:
       x-ballerina-event-type: qbo.billpayment.created.v1
@@ -823,7 +836,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Bill Payment has been created
     BillPaymentUpdateMessage:
       x-ballerina-event-type: qbo.billpayment.updated.v1
@@ -832,7 +847,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Bill Payment has been updated
     BillPaymentDeleteMessage:
       x-ballerina-event-type: qbo.billpayment.deleted.v1
@@ -841,7 +858,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Bill Payment has been deleted
     BillPaymentVoidMessage:
       x-ballerina-event-type: qbo.billpayment.void.v1
@@ -850,7 +869,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Bill Payment has been voided
     BudgetCreateMessage:
       x-ballerina-event-type: qbo.budget.created.v1
@@ -859,7 +880,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Budget has been created
     BudgetUpdateMessage:
       x-ballerina-event-type: qbo.budget.updated.v1
@@ -868,7 +891,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Budget has been updated
     ChangeOrderCreateMessage:
       x-ballerina-event-type: qbo.changeorder.created.v1
@@ -877,7 +902,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Change Order has been created
     ChangeOrderUpdateMessage:
       x-ballerina-event-type: qbo.changeorder.updated.v1
@@ -886,7 +913,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Change Order has been updated
     ChangeOrderDeleteMessage:
       x-ballerina-event-type: qbo.changeorder.deleted.v1
@@ -895,7 +924,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Change Order has been deleted
     ClassCreateMessage:
       x-ballerina-event-type: qbo.class.created.v1
@@ -904,7 +935,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Class has been created
     ClassUpdateMessage:
       x-ballerina-event-type: qbo.class.updated.v1
@@ -913,7 +946,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Class has been updated
     ClassDeleteMessage:
       x-ballerina-event-type: qbo.class.deleted.v1
@@ -922,7 +957,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Class has been deleted
     ClassMergeMessage:
       x-ballerina-event-type: qbo.class.merged.v1
@@ -931,7 +968,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Class has been merged
     CreditMemoCreateMessage:
       x-ballerina-event-type: qbo.creditmemo.created.v1
@@ -940,7 +979,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Credit Memo has been created
     CreditMemoUpdateMessage:
       x-ballerina-event-type: qbo.creditmemo.updated.v1
@@ -949,7 +990,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Credit Memo has been updated
     CreditMemoDeleteMessage:
       x-ballerina-event-type: qbo.creditmemo.deleted.v1
@@ -958,7 +1001,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Credit Memo has been deleted
     CreditMemoVoidMessage:
       x-ballerina-event-type: qbo.creditmemo.void.v1
@@ -967,7 +1012,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Credit Memo has been voided
     CreditMemoEmailMessage:
       x-ballerina-event-type: qbo.creditmemo.emailed.v1
@@ -976,7 +1023,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Credit Memo has been emailed
     CurrencyCreateMessage:
       x-ballerina-event-type: qbo.currency.created.v1
@@ -985,7 +1034,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Currency has been created
     CurrencyUpdateMessage:
       x-ballerina-event-type: qbo.currency.updated.v1
@@ -994,7 +1045,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Currency has been updated
     CurrencyDeleteMessage:
       x-ballerina-event-type: qbo.currency.deleted.v1
@@ -1003,7 +1056,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Currency has been deleted
     CustomerCreateMessage:
       x-ballerina-event-type: qbo.customer.created.v1
@@ -1012,7 +1067,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Customer has been created
     CustomerUpdateMessage:
       x-ballerina-event-type: qbo.customer.updated.v1
@@ -1021,7 +1078,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Customer has been updated
     CustomerDeleteMessage:
       x-ballerina-event-type: qbo.customer.deleted.v1
@@ -1030,7 +1089,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Customer has been deleted
     CustomerMergeMessage:
       x-ballerina-event-type: qbo.customer.merged.v1
@@ -1039,7 +1100,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Customer has been merged
     DepartmentCreateMessage:
       x-ballerina-event-type: qbo.department.created.v1
@@ -1048,7 +1111,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Department has been created
     DepartmentUpdateMessage:
       x-ballerina-event-type: qbo.department.updated.v1
@@ -1057,7 +1122,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Department has been updated
     DepartmentMergeMessage:
       x-ballerina-event-type: qbo.department.merged.v1
@@ -1066,7 +1133,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Department has been merged
     DepositCreateMessage:
       x-ballerina-event-type: qbo.deposit.created.v1
@@ -1075,7 +1144,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Deposit has been created
     DepositUpdateMessage:
       x-ballerina-event-type: qbo.deposit.updated.v1
@@ -1084,7 +1155,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Deposit has been updated
     DepositDeleteMessage:
       x-ballerina-event-type: qbo.deposit.deleted.v1
@@ -1093,7 +1166,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Deposit has been deleted
     EmployeeCreateMessage:
       x-ballerina-event-type: qbo.employee.created.v1
@@ -1102,7 +1177,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Employee has been created
     EmployeeUpdateMessage:
       x-ballerina-event-type: qbo.employee.updated.v1
@@ -1111,7 +1188,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Employee has been updated
     EmployeeDeleteMessage:
       x-ballerina-event-type: qbo.employee.deleted.v1
@@ -1120,7 +1199,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Employee has been deleted
     EmployeeMergeMessage:
       x-ballerina-event-type: qbo.employee.merged.v1
@@ -1129,7 +1210,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Employee has been merged
     EstimateCreateMessage:
       x-ballerina-event-type: qbo.estimate.created.v1
@@ -1138,7 +1221,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Estimate has been created
     EstimateUpdateMessage:
       x-ballerina-event-type: qbo.estimate.updated.v1
@@ -1147,7 +1232,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Estimate has been updated
     EstimateDeleteMessage:
       x-ballerina-event-type: qbo.estimate.deleted.v1
@@ -1156,7 +1243,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Estimate has been deleted
     EstimateEmailMessage:
       x-ballerina-event-type: qbo.estimate.emailed.v1
@@ -1165,7 +1254,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Estimate has been emailed
     InvoiceCreateMessage:
       x-ballerina-event-type: qbo.invoice.created.v1
@@ -1174,7 +1265,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Invoice has been created
     InvoiceUpdateMessage:
       x-ballerina-event-type: qbo.invoice.updated.v1
@@ -1183,7 +1276,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Invoice has been updated
     InvoiceDeleteMessage:
       x-ballerina-event-type: qbo.invoice.deleted.v1
@@ -1192,7 +1287,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Invoice has been deleted
     InvoiceVoidMessage:
       x-ballerina-event-type: qbo.invoice.void.v1
@@ -1201,7 +1298,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Invoice has been voided
     InvoiceEmailMessage:
       x-ballerina-event-type: qbo.invoice.emailed.v1
@@ -1210,7 +1309,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Invoice has been emailed
     ItemCreateMessage:
       x-ballerina-event-type: qbo.item.created.v1
@@ -1219,7 +1320,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Item has been created
     ItemUpdateMessage:
       x-ballerina-event-type: qbo.item.updated.v1
@@ -1228,7 +1331,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Item has been updated
     ItemDeleteMessage:
       x-ballerina-event-type: qbo.item.deleted.v1
@@ -1237,7 +1342,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Item has been deleted
     ItemMergeMessage:
       x-ballerina-event-type: qbo.item.merged.v1
@@ -1246,7 +1353,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Item has been merged
     JournalCodeCreateMessage:
       x-ballerina-event-type: qbo.journalcode.created.v1
@@ -1255,7 +1364,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Journal Code has been created
     JournalCodeUpdateMessage:
       x-ballerina-event-type: qbo.journalcode.updated.v1
@@ -1264,7 +1375,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Journal Code has been updated
     JournalEntryCreateMessage:
       x-ballerina-event-type: qbo.journalentry.created.v1
@@ -1273,7 +1386,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Journal Entry has been created
     JournalEntryUpdateMessage:
       x-ballerina-event-type: qbo.journalentry.updated.v1
@@ -1282,7 +1397,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Journal Entry has been updated
     JournalEntryDeleteMessage:
       x-ballerina-event-type: qbo.journalentry.deleted.v1
@@ -1291,7 +1408,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Journal Entry has been deleted
     PaymentCreateMessage:
       x-ballerina-event-type: qbo.payment.created.v1
@@ -1300,7 +1419,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Payment has been created
     PaymentUpdateMessage:
       x-ballerina-event-type: qbo.payment.updated.v1
@@ -1309,7 +1430,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Payment has been updated
     PaymentDeleteMessage:
       x-ballerina-event-type: qbo.payment.deleted.v1
@@ -1318,7 +1441,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Payment has been deleted
     PaymentVoidMessage:
       x-ballerina-event-type: qbo.payment.void.v1
@@ -1327,7 +1452,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Payment has been voided
     PaymentEmailMessage:
       x-ballerina-event-type: qbo.payment.emailed.v1
@@ -1336,7 +1463,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Payment has been emailed
     PaymentMethodCreateMessage:
       x-ballerina-event-type: qbo.paymentmethod.created.v1
@@ -1345,7 +1474,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Payment Method has been created
     PaymentMethodUpdateMessage:
       x-ballerina-event-type: qbo.paymentmethod.updated.v1
@@ -1354,7 +1485,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Payment Method has been updated
     PaymentMethodMergeMessage:
       x-ballerina-event-type: qbo.paymentmethod.merged.v1
@@ -1363,7 +1496,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Payment Method has been merged
     PreferencesUpdateMessage:
       x-ballerina-event-type: qbo.preferences.updated.v1
@@ -1372,7 +1507,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Preferences has been updated
     PurchaseCreateMessage:
       x-ballerina-event-type: qbo.purchase.created.v1
@@ -1381,7 +1518,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Purchase has been created
     PurchaseUpdateMessage:
       x-ballerina-event-type: qbo.purchase.updated.v1
@@ -1390,7 +1529,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Purchase has been updated
     PurchaseDeleteMessage:
       x-ballerina-event-type: qbo.purchase.deleted.v1
@@ -1399,7 +1540,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Purchase has been deleted
     PurchaseVoidMessage:
       x-ballerina-event-type: qbo.purchase.void.v1
@@ -1408,7 +1551,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Purchase has been voided
     PurchaseOrderCreateMessage:
       x-ballerina-event-type: qbo.purchaseorder.created.v1
@@ -1417,7 +1562,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Purchase Order has been created
     PurchaseOrderUpdateMessage:
       x-ballerina-event-type: qbo.purchaseorder.updated.v1
@@ -1426,7 +1573,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Purchase Order has been updated
     PurchaseOrderDeleteMessage:
       x-ballerina-event-type: qbo.purchaseorder.deleted.v1
@@ -1435,7 +1584,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Purchase Order has been deleted
     PurchaseOrderEmailMessage:
       x-ballerina-event-type: qbo.purchaseorder.emailed.v1
@@ -1444,7 +1595,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Purchase Order has been emailed
     RefundReceiptCreateMessage:
       x-ballerina-event-type: qbo.refundreceipt.created.v1
@@ -1453,7 +1606,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Refund Receipt has been created
     RefundReceiptUpdateMessage:
       x-ballerina-event-type: qbo.refundreceipt.updated.v1
@@ -1462,7 +1617,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Refund Receipt has been updated
     RefundReceiptDeleteMessage:
       x-ballerina-event-type: qbo.refundreceipt.deleted.v1
@@ -1471,7 +1628,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Refund Receipt has been deleted
     RefundReceiptVoidMessage:
       x-ballerina-event-type: qbo.refundreceipt.void.v1
@@ -1480,7 +1639,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Refund Receipt has been voided
     RefundReceiptEmailMessage:
       x-ballerina-event-type: qbo.refundreceipt.emailed.v1
@@ -1489,7 +1650,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Refund Receipt has been emailed
     SalesReceiptCreateMessage:
       x-ballerina-event-type: qbo.salesreceipt.created.v1
@@ -1498,7 +1661,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Sales Receipt has been created
     SalesReceiptUpdateMessage:
       x-ballerina-event-type: qbo.salesreceipt.updated.v1
@@ -1507,7 +1672,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Sales Receipt has been updated
     SalesReceiptDeleteMessage:
       x-ballerina-event-type: qbo.salesreceipt.deleted.v1
@@ -1516,7 +1683,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Sales Receipt has been deleted
     SalesReceiptVoidMessage:
       x-ballerina-event-type: qbo.salesreceipt.void.v1
@@ -1525,7 +1694,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Sales Receipt has been voided
     SalesReceiptEmailMessage:
       x-ballerina-event-type: qbo.salesreceipt.emailed.v1
@@ -1534,7 +1705,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Sales Receipt has been emailed
     TaxAgencyCreateMessage:
       x-ballerina-event-type: qbo.taxagency.created.v1
@@ -1543,7 +1716,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Tax Agency has been created
     TaxAgencyUpdateMessage:
       x-ballerina-event-type: qbo.taxagency.updated.v1
@@ -1552,7 +1727,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Tax Agency has been updated
     TermCreateMessage:
       x-ballerina-event-type: qbo.term.created.v1
@@ -1561,7 +1738,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Term has been created
     TermUpdateMessage:
       x-ballerina-event-type: qbo.term.updated.v1
@@ -1570,7 +1749,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Term has been updated
     TimeActivityCreateMessage:
       x-ballerina-event-type: qbo.timeactivity.created.v1
@@ -1579,7 +1760,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Time Activity has been created
     TimeActivityUpdateMessage:
       x-ballerina-event-type: qbo.timeactivity.updated.v1
@@ -1588,7 +1771,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Time Activity has been updated
     TimeActivityDeleteMessage:
       x-ballerina-event-type: qbo.timeactivity.deleted.v1
@@ -1597,7 +1782,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Time Activity has been deleted
     TransferCreateMessage:
       x-ballerina-event-type: qbo.transfer.created.v1
@@ -1606,7 +1793,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Transfer has been created
     TransferUpdateMessage:
       x-ballerina-event-type: qbo.transfer.updated.v1
@@ -1615,7 +1804,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Transfer has been updated
     TransferDeleteMessage:
       x-ballerina-event-type: qbo.transfer.deleted.v1
@@ -1624,7 +1815,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Transfer has been deleted
     TransferVoidMessage:
       x-ballerina-event-type: qbo.transfer.void.v1
@@ -1633,7 +1826,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Transfer has been voided
     CompanyCurrencyCreateMessage:
       x-ballerina-event-type: qbo.companycurrency.created.v1
@@ -1642,7 +1837,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Company Currency has been created
     CompanyCurrencyUpdateMessage:
       x-ballerina-event-type: qbo.companycurrency.updated.v1
@@ -1651,7 +1848,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Company Currency has been updated
     CompanyCurrencyDeleteMessage:
       x-ballerina-event-type: qbo.companycurrency.deleted.v1
@@ -1660,7 +1859,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Company Currency has been deleted
     VendorCreateMessage:
       x-ballerina-event-type: qbo.vendor.created.v1
@@ -1669,7 +1870,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Vendor has been created
     VendorUpdateMessage:
       x-ballerina-event-type: qbo.vendor.updated.v1
@@ -1678,7 +1881,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Vendor has been updated
     VendorDeleteMessage:
       x-ballerina-event-type: qbo.vendor.deleted.v1
@@ -1687,7 +1892,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Vendor has been deleted
     VendorMergeMessage:
       x-ballerina-event-type: qbo.vendor.merged.v1
@@ -1696,7 +1903,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Vendor has been merged
     VendorCreditCreateMessage:
       x-ballerina-event-type: qbo.vendorcredit.created.v1
@@ -1705,7 +1914,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Vendor Credit has been created
     VendorCreditUpdateMessage:
       x-ballerina-event-type: qbo.vendorcredit.updated.v1
@@ -1714,7 +1925,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Vendor Credit has been updated
     VendorCreditDeleteMessage:
       x-ballerina-event-type: qbo.vendorcredit.deleted.v1
@@ -1723,7 +1936,9 @@ components:
         description: Webhook docs
         url: https://developer.intuit.com/app/developer/qbo/docs/develop/webhooks
       payload:
-        $ref: '#/components/schemas/quickBookEvent'
+        type: array
+        items:
+          $ref: '#/components/schemas/quickBookEvent'
       summary: QBO Vendor Credit has been deleted
   schemas:
     quickBookEvent:
