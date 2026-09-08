@@ -20,10 +20,12 @@ public type CompanyCurrencyService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onCompanyCurrencyUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Company currency deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onCompanyCurrencyDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Company currency created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -36,14 +38,17 @@ public type AccountService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onAccountMerged(QuickBookEvent payload) returns error?;
+
     # Triggered on Account updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onAccountUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Account created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onAccountCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Account deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -56,14 +61,17 @@ public type EstimateService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onEstimateCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Estimate emailed.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onEstimateEmailed(QuickBookEvent payload) returns error?;
+
     # Triggered on Estimate deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onEstimateDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Estimate updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -76,18 +84,22 @@ public type InvoiceService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onInvoiceCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Invoice updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onInvoiceUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Invoice deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onInvoiceDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Invoice emailed.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onInvoiceEmailed(QuickBookEvent payload) returns error?;
+
     # Triggered on Invoice voided.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -100,14 +112,17 @@ public type CustomerService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onCustomerDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Customer created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onCustomerCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Customer updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onCustomerUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Customer merged.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -120,6 +135,7 @@ public type TaxAgencyService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onTaxAgencyUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Tax agency created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -132,10 +148,12 @@ public type JournalEntryService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onJournalEntryUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Journal entry deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onJournalEntryDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Journal entry created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -148,14 +166,17 @@ public type ItemService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onItemCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Item deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onItemDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Item updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onItemUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Item merged.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -168,10 +189,12 @@ public type DepartmentService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onDepartmentCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Department merged.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onDepartmentMerged(QuickBookEvent payload) returns error?;
+
     # Triggered on Department updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -184,18 +207,22 @@ public type RefundReceiptService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onRefundReceiptCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Refund receipt deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onRefundReceiptDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Refund receipt emailed.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onRefundReceiptEmailed(QuickBookEvent payload) returns error?;
+
     # Triggered on Refund receipt voided.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onRefundReceiptVoided(QuickBookEvent payload) returns error?;
+
     # Triggered on Refund receipt updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -208,10 +235,12 @@ public type CurrencyService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onCurrencyCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Currency deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onCurrencyDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Currency updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -224,14 +253,17 @@ public type BillPaymentService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onBillPaymentCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Bill payment deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onBillPaymentDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Bill payment voided.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onBillPaymentVoided(QuickBookEvent payload) returns error?;
+
     # Triggered on Bill payment updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -244,18 +276,22 @@ public type CreditMemoService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onCreditMemoUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Credit memo voided.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onCreditMemoVoided(QuickBookEvent payload) returns error?;
+
     # Triggered on Credit memo emailed.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onCreditMemoEmailed(QuickBookEvent payload) returns error?;
+
     # Triggered on Credit memo created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onCreditMemoCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Credit memo deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -268,6 +304,7 @@ public type BudgetService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onBudgetUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Budget created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -288,10 +325,12 @@ public type TimeActivityService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onTimeActivityCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Time activity updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onTimeActivityUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Time activity deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -304,10 +343,12 @@ public type DepositService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onDepositCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Deposit updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onDepositUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Deposit deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -320,6 +361,7 @@ public type JournalCodeService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onJournalCodeUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Journal code created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -332,14 +374,17 @@ public type PurchaseService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onPurchaseVoided(QuickBookEvent payload) returns error?;
+
     # Triggered on Purchase updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onPurchaseUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Purchase deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onPurchaseDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Purchase created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -352,10 +397,12 @@ public type VendorCreditService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onVendorCreditCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Vendor credit deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onVendorCreditDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Vendor credit updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -368,6 +415,7 @@ public type TermService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onTermCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Term updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -380,14 +428,17 @@ public type VendorService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onVendorUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Vendor deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onVendorDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Vendor merged.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onVendorMerged(QuickBookEvent payload) returns error?;
+
     # Triggered on Vendor created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -400,18 +451,22 @@ public type PaymentService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onPaymentUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Payment emailed.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onPaymentEmailed(QuickBookEvent payload) returns error?;
+
     # Triggered on Payment voided.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onPaymentVoided(QuickBookEvent payload) returns error?;
+
     # Triggered on Payment created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onPaymentCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Payment deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -424,18 +479,22 @@ public type SalesReceiptService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onSalesReceiptCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Sales receipt deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onSalesReceiptDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Sales receipt voided.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onSalesReceiptVoided(QuickBookEvent payload) returns error?;
+
     # Triggered on Sales receipt updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onSalesReceiptUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Sales receipt emailed.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -448,14 +507,17 @@ public type EmployeeService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onEmployeeUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Employee merged.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onEmployeeMerged(QuickBookEvent payload) returns error?;
+
     # Triggered on Employee created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onEmployeeCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Employee deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -468,10 +530,12 @@ public type ChangeOrderService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onChangeOrderCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Change order updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onChangeOrderUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Change order deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -484,14 +548,17 @@ public type TransferService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onTransferCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Transfer deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onTransferDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Transfer voided.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onTransferVoided(QuickBookEvent payload) returns error?;
+
     # Triggered on Transfer updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -504,10 +571,12 @@ public type BillService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onBillUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Bill deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onBillDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Bill created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -520,14 +589,17 @@ public type PurchaseOrderService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onPurchaseOrderDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Purchase order created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onPurchaseOrderCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Purchase order updated.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onPurchaseOrderUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Purchase order emailed.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -540,10 +612,12 @@ public type PaymentMethodService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onPaymentMethodUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Payment method created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onPaymentMethodCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Payment method merged.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
@@ -556,14 +630,17 @@ public type ClassService service object {
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onClassUpdated(QuickBookEvent payload) returns error?;
+
     # Triggered on Class deleted.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onClassDeleted(QuickBookEvent payload) returns error?;
+
     # Triggered on Class created.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
     remote function onClassCreated(QuickBookEvent payload) returns error?;
+
     # Triggered on Class merged.
     # + payload - the QuickBookEvent webhook payload
     # + return - an error if handling the event fails
