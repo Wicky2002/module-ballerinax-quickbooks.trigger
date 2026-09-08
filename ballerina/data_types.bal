@@ -14,13 +14,10 @@
 // specific language governing permissions and limitations
 // under the License.
 
-const string DEFAULT_SECRET = "";
-
 # Configuration for the webhook listener, including the secret used to verify incoming requests.
 public type ListenerConfig record {
-    # The secret used to verify incoming webhook signatures.
-    @display {label: "Webhook Secret"}
-    string webhookSecret = DEFAULT_SECRET;
+    # Webhook Secret
+    string webhookSecret?;
 };
 
 # A single CloudEvents-formatted QuickBooks webhook notification.
@@ -42,7 +39,7 @@ public type QuickBookEvent record {
     # The QuickBooks company (realm) ID this event belongs to.
     string intuitaccountid;
     # Operation-specific event data. Confirmed shapes so far: empty on create, {"deletedId": "..."} on merge. Shape for update/delete/void/email is not yet confirmed against a real delivery.
-    record {} data?;
+    map<json> data?;
 };
 
 # The union of every possible webhook payload type this listener can receive.

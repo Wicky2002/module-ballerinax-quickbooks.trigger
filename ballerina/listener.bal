@@ -22,13 +22,14 @@ public class Listener {
     private http:Listener httpListener;
     private DispatcherService dispatcherService;
 
-    public function init(ListenerConfig listenerConfig = {webhookSecret: DEFAULT_SECRET}, @cloud:Expose int|http:Listener listenOn = 8090) returns error? {
+    public function init(ListenerConfig listenerConfig = {}, @cloud:Expose int|http:Listener listenOn = 8090) returns error? {
         if listenOn is http:Listener {
             self.httpListener = listenOn;
         } else {
             self.httpListener = check new (listenOn);
         }
         self.dispatcherService = new DispatcherService(listenerConfig.webhookSecret);
+        check self.httpListener.attach(self.dispatcherService, ());
     }
 
     public isolated function attach(GenericServiceType serviceRef, () attachPoint) returns error? {
@@ -42,7 +43,6 @@ public class Listener {
     }
 
     public isolated function 'start() returns error? {
-        check self.httpListener.attach(self.dispatcherService, ());
         return self.httpListener.'start();
     }
 
@@ -55,70 +55,103 @@ public class Listener {
     }
 
     private isolated function getServiceTypeStr(GenericServiceType serviceRef) returns string|error {
-        if serviceRef is CompanyCurrencyService {
-            return "CompanyCurrencyService";
-        } else if serviceRef is AccountService {
-            return "AccountService";
-        } else if serviceRef is EstimateService {
-            return "EstimateService";
-        } else if serviceRef is InvoiceService {
-            return "InvoiceService";
-        } else if serviceRef is CustomerService {
-            return "CustomerService";
-        } else if serviceRef is TaxAgencyService {
-            return "TaxAgencyService";
-        } else if serviceRef is JournalEntryService {
-            return "JournalEntryService";
-        } else if serviceRef is ItemService {
-            return "ItemService";
-        } else if serviceRef is DepartmentService {
-            return "DepartmentService";
-        } else if serviceRef is RefundReceiptService {
-            return "RefundReceiptService";
-        } else if serviceRef is CurrencyService {
-            return "CurrencyService";
-        } else if serviceRef is BillPaymentService {
-            return "BillPaymentService";
-        } else if serviceRef is CreditMemoService {
-            return "CreditMemoService";
-        } else if serviceRef is BudgetService {
-            return "BudgetService";
-        } else if serviceRef is PreferencesService {
-            return "PreferencesService";
-        } else if serviceRef is TimeActivityService {
-            return "TimeActivityService";
-        } else if serviceRef is DepositService {
-            return "DepositService";
-        } else if serviceRef is JournalCodeService {
-            return "JournalCodeService";
-        } else if serviceRef is PurchaseService {
-            return "PurchaseService";
-        } else if serviceRef is VendorCreditService {
-            return "VendorCreditService";
-        } else if serviceRef is TermService {
-            return "TermService";
-        } else if serviceRef is VendorService {
-            return "VendorService";
-        } else if serviceRef is PaymentService {
-            return "PaymentService";
-        } else if serviceRef is SalesReceiptService {
-            return "SalesReceiptService";
-        } else if serviceRef is EmployeeService {
-            return "EmployeeService";
-        } else if serviceRef is ChangeOrderService {
-            return "ChangeOrderService";
-        } else if serviceRef is TransferService {
-            return "TransferService";
-        } else if serviceRef is BillService {
-            return "BillService";
-        } else if serviceRef is PurchaseOrderService {
-            return "PurchaseOrderService";
-        } else if serviceRef is PaymentMethodService {
-            return "PaymentMethodService";
-        } else if serviceRef is ClassService {
-            return "ClassService";
-        } else {
-            return error("Unrecognized service type attached to the listener");
+        match serviceRef {
+            var v if v is CompanyCurrencyService => {
+                return "CompanyCurrencyService";
+            }
+            var v if v is AccountService => {
+                return "AccountService";
+            }
+            var v if v is EstimateService => {
+                return "EstimateService";
+            }
+            var v if v is InvoiceService => {
+                return "InvoiceService";
+            }
+            var v if v is CustomerService => {
+                return "CustomerService";
+            }
+            var v if v is TaxAgencyService => {
+                return "TaxAgencyService";
+            }
+            var v if v is JournalEntryService => {
+                return "JournalEntryService";
+            }
+            var v if v is ItemService => {
+                return "ItemService";
+            }
+            var v if v is DepartmentService => {
+                return "DepartmentService";
+            }
+            var v if v is RefundReceiptService => {
+                return "RefundReceiptService";
+            }
+            var v if v is CurrencyService => {
+                return "CurrencyService";
+            }
+            var v if v is BillPaymentService => {
+                return "BillPaymentService";
+            }
+            var v if v is CreditMemoService => {
+                return "CreditMemoService";
+            }
+            var v if v is BudgetService => {
+                return "BudgetService";
+            }
+            var v if v is PreferencesService => {
+                return "PreferencesService";
+            }
+            var v if v is TimeActivityService => {
+                return "TimeActivityService";
+            }
+            var v if v is DepositService => {
+                return "DepositService";
+            }
+            var v if v is JournalCodeService => {
+                return "JournalCodeService";
+            }
+            var v if v is PurchaseService => {
+                return "PurchaseService";
+            }
+            var v if v is VendorCreditService => {
+                return "VendorCreditService";
+            }
+            var v if v is TermService => {
+                return "TermService";
+            }
+            var v if v is VendorService => {
+                return "VendorService";
+            }
+            var v if v is PaymentService => {
+                return "PaymentService";
+            }
+            var v if v is SalesReceiptService => {
+                return "SalesReceiptService";
+            }
+            var v if v is EmployeeService => {
+                return "EmployeeService";
+            }
+            var v if v is ChangeOrderService => {
+                return "ChangeOrderService";
+            }
+            var v if v is TransferService => {
+                return "TransferService";
+            }
+            var v if v is BillService => {
+                return "BillService";
+            }
+            var v if v is PurchaseOrderService => {
+                return "PurchaseOrderService";
+            }
+            var v if v is PaymentMethodService => {
+                return "PaymentMethodService";
+            }
+            var v if v is ClassService => {
+                return "ClassService";
+            }
+            var _ => {
+                return error("Unrecognized service type attached to the listener");
+            }
         }
     }
 }

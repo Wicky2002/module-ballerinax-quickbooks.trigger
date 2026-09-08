@@ -23,9 +23,9 @@ service class DispatcherService {
     *http:Service;
     private map<GenericServiceType> services = {};
     private handler:NativeHandler nativeHandler = new ();
-    private string webhookSecret;
+    private string? webhookSecret;
 
-    function init(string webhookSecret) {
+    function init(string? webhookSecret) {
         self.webhookSecret = webhookSecret;
     }
 
@@ -79,7 +79,10 @@ service class DispatcherService {
         }
     }
 
-    private isolated function verifyWebhookSignature(http:Request request, string webhookSecret) returns error? {
+    private isolated function verifyWebhookSignature(http:Request request, string? webhookSecret) returns error? {
+        if webhookSecret is () {
+            return error("Unauthorized: Webhook Secret Not Configured");
+        }
         if !request.hasHeader("Intuit-Signature") {
             return error("Unauthorized: Missing Signature Header");
         }
