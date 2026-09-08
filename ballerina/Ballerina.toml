@@ -5,6 +5,6 @@ name = "quickbooks.trigger"
 version = "0.1.0"
 license = ["Apache-2.0"]
 authors = ["Ballerina"]
-keywords = ["Financial Services/Accounting", "Cost/Freemium", "Trigger"]
+keywords = ["Area/Finance & Accounting", "Cost/Freemium", "Type/Trigger"]
 icon = "icon.png"
 repository = "https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger"
