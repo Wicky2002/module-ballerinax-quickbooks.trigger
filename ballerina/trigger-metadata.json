@@ -1,0 +1,63 @@
+{
+  "version": "v1.0",
+
+  "listeners": [
+    {
+      "id": "$listener",
+      "doc": "Webhook listener that dispatches each inbound QuickBooks CloudEvents notification to the concrete service type matching its entity.",
+      "type": { "name": "Listener" },
+      "services": [
+        "$account",
+        "$invoice",
+        "$customer",
+        "$taxAgency",
+        "$preferences"
+      ],
+      "multipleServicesAllowed": true,
+      "multipleServicesOfSameTypeAllowed": false
+    }
+  ],
+
+  "serviceTypes": [
+    {
+      "id": "$account",
+      "doc": "Receives QuickBooks account events: merged, updated, created, and deleted.",
+      "type": { "name": "AccountService" },
+      "concrete": true,
+      "multipleListenersAllowed": true,
+      "handlers": { "backedByConcreteType": true }
+    },
+    {
+      "id": "$invoice",
+      "doc": "Receives QuickBooks invoice events: created, updated, deleted, emailed, and voided.",
+      "type": { "name": "InvoiceService" },
+      "concrete": true,
+      "multipleListenersAllowed": true,
+      "handlers": { "backedByConcreteType": true }
+    },
+    {
+      "id": "$customer",
+      "doc": "Receives QuickBooks customer events: deleted, created, updated, and merged.",
+      "type": { "name": "CustomerService" },
+      "concrete": true,
+      "multipleListenersAllowed": true,
+      "handlers": { "backedByConcreteType": true }
+    },
+    {
+      "id": "$taxAgency",
+      "doc": "Receives QuickBooks tax agency events: updated and created.",
+      "type": { "name": "TaxAgencyService" },
+      "concrete": true,
+      "multipleListenersAllowed": true,
+      "handlers": { "backedByConcreteType": true }
+    },
+    {
+      "id": "$preferences",
+      "doc": "Receives QuickBooks company preferences events: updated.",
+      "type": { "name": "PreferencesService" },
+      "concrete": true,
+      "multipleListenersAllowed": true,
+      "handlers": { "backedByConcreteType": true }
+    }
+  ]
+}

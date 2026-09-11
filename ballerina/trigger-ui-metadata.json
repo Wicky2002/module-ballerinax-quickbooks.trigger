@@ -1,0 +1,258 @@
+{
+  "version": "v1.0",
+  "metadata": {
+    "kind": "event"
+  },
+  "trigger": {
+    "displayName": "QuickBooks Event Integration",
+    "description": "Create a service to handle webhook events from QuickBooks",
+    "type": "quickbooks"
+  },
+  "initForm": {
+    "fields": [
+      {
+        "target": {
+          "kind": "recordField",
+          "owner": "trigger.initProperties",
+          "path": "serviceType"
+        },
+        "metadata": {
+          "label": "Event Channel",
+          "description": "The type of QuickBooks entity event to listen for"
+        },
+        "source": {
+          "construct": {
+            "kind": "SERVICE_TYPE_DESCRIPTOR"
+          },
+          "module": {
+            "name": "quickbooks"
+          }
+        },
+        "state": {
+          "enabled": true,
+          "editable": true,
+          "optional": false,
+          "advanced": false
+        },
+        "key": "serviceType",
+        "default": "quickbooks:CustomerService"
+      }
+    ]
+  },
+  "listeners": [
+    {
+      "target": "$listener",
+      "form": {
+        "section": {
+          "label": "Listener",
+          "description": "Attach the service to a new or existing QuickBooks webhook listener."
+        },
+        "createNew": {
+          "label": "Create New Listener",
+          "description": "Define a new QuickBooks webhook listener in the project."
+        },
+        "listenerConfig": {
+          "label": "Listener Configurations",
+          "description": "Configure the QuickBooks webhook listener."
+        },
+        "useExisting": {
+          "label": "Use Existing Listener",
+          "description": "Attach to a QuickBooks listener already declared in the project."
+        },
+        "existingListener": {
+          "label": "Listener",
+          "description": "Select an existing listener to attach the service to."
+        },
+        "existingListenerItems": [
+          "quickbooksListener"
+        ],
+        "existingListenerValue": "quickbooksListener"
+      },
+      "formFields": {
+        "listenerVarName": {
+          "key": "listenerVarName",
+          "default": "quickbooksListener",
+          "metadata": {
+            "label": "Listener Name",
+            "description": "Provide a name for the listener being created"
+          },
+          "source": {
+            "construct": {
+              "kind": "LISTENER_VAR_NAME"
+            }
+          },
+          "state": {
+            "enabled": true,
+            "editable": true,
+            "optional": false,
+            "advanced": false
+          }
+        },
+        "listenOn": {
+          "key": "listenOn",
+          "placeholder": "8090",
+          "default": "8090",
+          "metadata": {
+            "label": "Webhook Listener Port",
+            "description": "The port on which the webhook listener accepts incoming HTTP requests"
+          },
+          "source": {
+            "argument": {
+              "kind": "LISTENER_PARAM_REQUIRED",
+              "position": 2,
+              "originalName": "listenOn"
+            }
+          },
+          "state": {
+            "enabled": true,
+            "editable": true,
+            "optional": true,
+            "advanced": false
+          }
+        },
+        "webhookSecret": {
+          "key": "webhookSecret",
+          "placeholder": "",
+          "default": "",
+          "metadata": {
+            "label": "Webhook Secret",
+            "description": "Secret used to validate incoming QuickBooks webhook requests"
+          },
+          "source": {
+            "argument": {
+              "kind": "LISTENER_PARAM_CONFIG_FIELD",
+              "originalName": "webhookSecret",
+              "position": 1
+            },
+            "path": "webhookSecret"
+          },
+          "state": {
+            "enabled": true,
+            "editable": true,
+            "optional": true,
+            "advanced": false
+          }
+        }
+      }
+    }
+  ],
+  "serviceTypes": [
+    {
+      "target": "$customer",
+      "metadata": {
+        "label": "Customer",
+        "description": "Triggered when an event related to a QuickBooks customer is received. Available actions: onDeleted, onCreated, onUpdated, and onMerged."
+      },
+      "source": {
+        "construct": {
+          "kind": "SERVICE_TYPE_DESCRIPTOR"
+        },
+        "argument": {
+          "originalName": "CustomerService"
+        },
+        "module": {
+          "name": "quickbooks"
+        }
+      },
+      "state": {
+        "enabled": true,
+        "editable": true
+      }
+    },
+    {
+      "target": "$invoice",
+      "metadata": {
+        "label": "Invoice",
+        "description": "Triggered when an event related to a QuickBooks invoice is received. Available actions: onCreated, onUpdated, onDeleted, onEmailed, and onVoided."
+      },
+      "source": {
+        "construct": {
+          "kind": "SERVICE_TYPE_DESCRIPTOR"
+        },
+        "argument": {
+          "originalName": "InvoiceService"
+        },
+        "module": {
+          "name": "quickbooks"
+        }
+      },
+      "state": {
+        "enabled": false,
+        "editable": true
+      }
+    },
+    {
+      "target": "$account",
+      "metadata": {
+        "label": "Account",
+        "description": "Triggered when an event related to a QuickBooks account is received. Available actions: onMerged, onUpdated, onCreated, and onDeleted."
+      },
+      "source": {
+        "construct": {
+          "kind": "SERVICE_TYPE_DESCRIPTOR"
+        },
+        "argument": {
+          "originalName": "AccountService"
+        },
+        "module": {
+          "name": "quickbooks"
+        }
+      },
+      "state": {
+        "enabled": false,
+        "editable": true
+      }
+    },
+    {
+      "target": "$taxAgency",
+      "metadata": {
+        "label": "Tax Agency",
+        "description": "Triggered when an event related to a QuickBooks tax agency is received. Available actions: onUpdated and onCreated."
+      },
+      "source": {
+        "construct": {
+          "kind": "SERVICE_TYPE_DESCRIPTOR"
+        },
+        "argument": {
+          "originalName": "TaxAgencyService"
+        },
+        "module": {
+          "name": "quickbooks"
+        }
+      },
+      "state": {
+        "enabled": false,
+        "editable": true
+      }
+    },
+    {
+      "target": "$preferences",
+      "metadata": {
+        "label": "Preferences",
+        "description": "Triggered when an event related to QuickBooks company preferences is received. Available action: onUpdated."
+      },
+      "source": {
+        "construct": {
+          "kind": "SERVICE_TYPE_DESCRIPTOR"
+        },
+        "argument": {
+          "originalName": "PreferencesService"
+        },
+        "module": {
+          "name": "quickbooks"
+        }
+      },
+      "state": {
+        "enabled": false,
+        "editable": true
+      }
+    }
+  ],
+  "artifactInfo": {
+    "displayLabel": "QuickBooks Event Integration",
+    "icon": {
+      "lightPath": "icon.png",
+      "darkPath": "icon.png"
+    }
+  }
+}
