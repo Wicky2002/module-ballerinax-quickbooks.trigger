@@ -25,10 +25,10 @@ neither matched reality nor even compiled cleanly.
 - Two entities added that weren't in the old spec at all: `ChangeOrder` and `CompanyCurrency`.
 - A sixth operation category, `emailed`, added — not modeled in the old spec (`created`, `updated`,
   `deleted`, `merged`, `void` were the only ones before).
-- Webhook signature verification and batched-delivery support added (`x-ballerina-auth` and
-  `x-ballerina-event-identifier.batched: true`) — the old spec had neither, so any POST claiming to
-  be from QuickBooks was previously dispatched unchecked, and only the first event of a batched
-  delivery was ever processed.
+- Webhook signature verification and batched-delivery support added (`x-ballerina-auth`, and
+  wrapping the payload as `type: array` so the generator detects batching structurally) — the old
+  spec had neither, so any POST claiming to be from QuickBooks was previously dispatched unchecked,
+  and only the first event of a batched delivery was ever processed.
 
 ## Known gap
 

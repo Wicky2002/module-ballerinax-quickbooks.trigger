@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger/actions/workflows/ci.yml/badge.svg)](https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger/actions/workflows/ci.yml)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/ballerina-platform/module-ballerinax-quickbooks.trigger.svg)](https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger/commits/master)
-[![GitHub Issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-library/module/quickbooks.trigger.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-library/labels/module%quickbooks.trigger)
+[![GitHub Issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-library/module/quickbooks.trigger.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-library/labels/module%2Fquickbooks.trigger)
 
 ## Overview
 
@@ -88,8 +88,7 @@ https://xxxx-xxx-xxx-xxx.ngrok-free.app
 
 <img src="https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-quickbooks.trigger/main/docs/setup/resources/ngrok-forwarding.png" alt="ngrok forwarding a public URL to localhost:8090" width="600">
 
-> **Save this value** - you will need the ngrok URL when configuring the webhook endpoint below and
-> in the Quickstart section.
+> **Save this value** - you will need the ngrok URL when configuring the webhook endpoint below.
 
 #### Step 3: Configure the Webhook Endpoint and Subscribe to Entities
 
@@ -206,7 +205,7 @@ covering common webhook event handling use cases.
 
    > **Note**: Ensure that the Docker daemon is running before executing any tests.
 
-4. Export Github Personal access token with read package permissions as follows,
+4. Export GitHub Personal access token with read package permissions as follows,
 
     ```bash
     export packageUser=<Username>
@@ -229,7 +228,7 @@ Execute the commands below to build from the source.
    ./gradlew clean test
    ```
 
-3. To build the without the tests:
+3. To build the package without the tests:
 
    ```bash
    ./gradlew clean build -x test

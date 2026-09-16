@@ -82,8 +82,7 @@ https://xxxx-xxx-xxx-xxx.ngrok-free.app
 
 <img src="https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-quickbooks.trigger/main/docs/setup/resources/ngrok-forwarding.png" alt="ngrok forwarding a public URL to localhost:8090" width="600">
 
-> **Save this value** - you will need the ngrok URL when configuring the webhook endpoint below and
-> in the Quickstart section.
+> **Save this value** - you will need the ngrok URL when configuring the webhook endpoint below.
 
 #### Step 3: Configure the Webhook Endpoint and Subscribe to Entities
 
@@ -142,7 +141,6 @@ To use the QuickBooks listener in your Ballerina application, update the `.bal` 
 
 Before running the quickstart, ensure you have:
 - The **Webhook Verifier Token** from Step 4 of the Setup guide
-- Your **ngrok URL** from Step 2 of the Setup guide
 - ngrok running (`ngrok http 8090`)
 
 ### Step 1: Import listener
@@ -181,11 +179,8 @@ this is what the listener uses to verify incoming payloads actually came from Qu
 
 Now let's use the triggers available within the listener.
 
-For example, you can configure the Ballerina listener to listen to invoice creation and deletion
-events as follows:
-
 A service attached to one of the listener's service types must implement **all** of that type's
-remote functions. For example, `InvoiceService` exposes five:
+remote functions. For example, `InvoiceService` exposes five, covering every invoice event:
 
 ```ballerina
 service quickbooks:InvoiceService on quickbooksWebhook {
@@ -215,11 +210,6 @@ service quickbooks:InvoiceService on quickbooksWebhook {
 entity's ID (`intuitentityid`) and the company it belongs to (`intuitaccountid`), not its contents.
 Use the QuickBooks Accounting API to fetch the entity's data if you need it.
 
-To verify it is working, go to your **QuickBooks sandbox company** and create, update, or delete an
-Invoice. You should see the event printed in the Ballerina console output.
-
-<img src="https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-quickbooks.trigger/main/docs/setup/resources/webhook-confirmed.png" alt="Ballerina console output showing a real QuickBooks webhook event dispatched successfully" width="600">
-
 To compile and run the Ballerina program, issue the following command:
 
 ```sh
@@ -227,7 +217,9 @@ bal run
 ```
 
 To verify it is working, go to your **QuickBooks sandbox company** and create, update, or delete an
-Invoice, Customer, or Bill. You should see the event printed in the Ballerina console output.
+Invoice. You should see the event printed in the Ballerina console output.
+
+<img src="https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-quickbooks.trigger/main/docs/setup/resources/webhook-confirmed.png" alt="Ballerina console output showing a real QuickBooks webhook event dispatched successfully" width="600">
 
 ## Examples
 
