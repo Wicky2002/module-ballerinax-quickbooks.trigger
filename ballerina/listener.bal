@@ -17,7 +17,7 @@
 import ballerina/cloud;
 import ballerina/http;
 
-@display {label: "QuickBook Webhooks", iconPath: "icon.png"}
+@display {label: "QuickBooks Webhooks", iconPath: "icon.png"}
 public class Listener {
     private http:Listener httpListener;
     private DispatcherService dispatcherService;

@@ -15,7 +15,6 @@ captured webhook delivery. Confirmation status varies by field:
 - `data` content on `updated`/`deleted`/`void`/`emailed` operations - **not yet
   confirmed against a real delivery**. These fixtures use an empty object as a
   placeholder, consistent with the `created` shape, not because it's verified for
-  these operations specifically. Replace with real captures as they become available
-  (see the plan's step on capturing more real deliveries).
+  these operations specifically. Replace with real captures as they become available.
 - All `id`/`source`/`time`/`intuitentityid`/`intuitaccountid` values outside the
   one real sample above are synthetic test data, not sourced from real traffic.

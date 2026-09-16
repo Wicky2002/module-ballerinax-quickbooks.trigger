@@ -10,7 +10,7 @@ x-ballerina-auth:
     headerFormat: $signature
     input: $body
 info:
-  title: QuickBook Webhooks
+  title: QuickBooks Webhooks
   version: 1.0.0
   description: |
     Use webhooks to receive event triggered callbacks for entities that your app needs to stay on top of.
