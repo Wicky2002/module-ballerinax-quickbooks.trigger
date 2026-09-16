@@ -16,7 +16,7 @@ This document records the sanitation done on top of the AsyncAPI specification f
 
 ## Ballerina trigger generation
 
-The Ballerina trigger source (`listener.bal`, `dispatcher_service.bal`, `service_types.bal`, `data_types.bal`) is generated from `asyncapi.yaml` using the `asyncapi-tools` generator (`ballerina-platform/asyncapi-tools`). The command should be executed from the repository root directory.
+The Ballerina trigger source (`listener.bal`, `dispatcher_service.bal`, `service_types.bal`, `types.bal`) is generated from `asyncapi.yaml` using the `asyncapi-tools` generator (`ballerina-platform/asyncapi-tools`). The command should be executed from the repository root directory.
 
 ```bash
 bal asyncapi http -i docs/spec/asyncapi.yaml -o ballerina/
