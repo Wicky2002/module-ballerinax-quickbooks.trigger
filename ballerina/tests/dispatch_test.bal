@@ -25,6 +25,7 @@ const TRIGGER_TEST_PORT = 9091;
 const TRIGGER_PAYLOAD_DIR = "tests/resources/trigger_payloads";
 
 isolated map<boolean> triggerFired = {};
+isolated map<json> boundPayloads = {};
 
 listener Listener triggerTestListener = check new ({webhookSecret: TRIGGER_TEST_SECRET}, TRIGGER_TEST_PORT);
 

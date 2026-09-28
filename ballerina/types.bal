@@ -38,7 +38,8 @@ public type QuickBookEvent record {
     string intuitentityid;
     # The QuickBooks company (realm) ID this event belongs to.
     string intuitaccountid;
-    # Operation-specific event data. Confirmed shapes so far: empty on create, {"deletedId": "..."} on merge. Shape for update/delete/void/email is not yet confirmed against a real delivery.
+    # Operation-specific event data. Confirmed shapes so far: empty on create, {"deletedId": "..."} on merge. Shape for
+    # update/delete/void/email is not yet confirmed against a real delivery.
     map<json> data?;
 };
 

@@ -15,9 +15,12 @@
 // under the License.
 
 import ballerina/crypto;
+import ballerina/data.jsondata;
 import ballerina/http;
 import ballerina/log;
 import ballerinax/asyncapi.native.handler;
+
+final readonly & map<typedesc<GenericDataType>> EVENT_PAYLOAD_TYPES = {"qbo.companycurrency.updated.v1": QuickBookEvent, "qbo.companycurrency.deleted.v1": QuickBookEvent, "qbo.companycurrency.created.v1": QuickBookEvent, "qbo.account.merged.v1": QuickBookEvent, "qbo.account.updated.v1": QuickBookEvent, "qbo.account.created.v1": QuickBookEvent, "qbo.account.deleted.v1": QuickBookEvent, "qbo.estimate.created.v1": QuickBookEvent, "qbo.estimate.emailed.v1": QuickBookEvent, "qbo.estimate.deleted.v1": QuickBookEvent, "qbo.estimate.updated.v1": QuickBookEvent, "qbo.invoice.created.v1": QuickBookEvent, "qbo.invoice.updated.v1": QuickBookEvent, "qbo.invoice.deleted.v1": QuickBookEvent, "qbo.invoice.emailed.v1": QuickBookEvent, "qbo.invoice.void.v1": QuickBookEvent, "qbo.customer.deleted.v1": QuickBookEvent, "qbo.customer.created.v1": QuickBookEvent, "qbo.customer.updated.v1": QuickBookEvent, "qbo.customer.merged.v1": QuickBookEvent, "qbo.taxagency.updated.v1": QuickBookEvent, "qbo.taxagency.created.v1": QuickBookEvent, "qbo.journalentry.updated.v1": QuickBookEvent, "qbo.journalentry.deleted.v1": QuickBookEvent, "qbo.journalentry.created.v1": QuickBookEvent, "qbo.item.created.v1": QuickBookEvent, "qbo.item.deleted.v1": QuickBookEvent, "qbo.item.updated.v1": QuickBookEvent, "qbo.item.merged.v1": QuickBookEvent, "qbo.department.created.v1": QuickBookEvent, "qbo.department.merged.v1": QuickBookEvent, "qbo.department.updated.v1": QuickBookEvent, "qbo.refundreceipt.created.v1": QuickBookEvent, "qbo.refundreceipt.deleted.v1": QuickBookEvent, "qbo.refundreceipt.emailed.v1": QuickBookEvent, "qbo.refundreceipt.void.v1": QuickBookEvent, "qbo.refundreceipt.updated.v1": QuickBookEvent, "qbo.currency.created.v1": QuickBookEvent, "qbo.currency.deleted.v1": QuickBookEvent, "qbo.currency.updated.v1": QuickBookEvent, "qbo.billpayment.created.v1": QuickBookEvent, "qbo.billpayment.deleted.v1": QuickBookEvent, "qbo.billpayment.void.v1": QuickBookEvent, "qbo.billpayment.updated.v1": QuickBookEvent, "qbo.creditmemo.updated.v1": QuickBookEvent, "qbo.creditmemo.void.v1": QuickBookEvent, "qbo.creditmemo.emailed.v1": QuickBookEvent, "qbo.creditmemo.created.v1": QuickBookEvent, "qbo.creditmemo.deleted.v1": QuickBookEvent, "qbo.budget.updated.v1": QuickBookEvent, "qbo.budget.created.v1": QuickBookEvent, "qbo.preferences.updated.v1": QuickBookEvent, "qbo.timeactivity.created.v1": QuickBookEvent, "qbo.timeactivity.updated.v1": QuickBookEvent, "qbo.timeactivity.deleted.v1": QuickBookEvent, "qbo.deposit.created.v1": QuickBookEvent, "qbo.deposit.updated.v1": QuickBookEvent, "qbo.deposit.deleted.v1": QuickBookEvent, "qbo.journalcode.updated.v1": QuickBookEvent, "qbo.journalcode.created.v1": QuickBookEvent, "qbo.purchase.void.v1": QuickBookEvent, "qbo.purchase.updated.v1": QuickBookEvent, "qbo.purchase.deleted.v1": QuickBookEvent, "qbo.purchase.created.v1": QuickBookEvent, "qbo.vendorcredit.created.v1": QuickBookEvent, "qbo.vendorcredit.deleted.v1": QuickBookEvent, "qbo.vendorcredit.updated.v1": QuickBookEvent, "qbo.term.created.v1": QuickBookEvent, "qbo.term.updated.v1": QuickBookEvent, "qbo.vendor.updated.v1": QuickBookEvent, "qbo.vendor.deleted.v1": QuickBookEvent, "qbo.vendor.merged.v1": QuickBookEvent, "qbo.vendor.created.v1": QuickBookEvent, "qbo.payment.updated.v1": QuickBookEvent, "qbo.payment.emailed.v1": QuickBookEvent, "qbo.payment.void.v1": QuickBookEvent, "qbo.payment.created.v1": QuickBookEvent, "qbo.payment.deleted.v1": QuickBookEvent, "qbo.salesreceipt.created.v1": QuickBookEvent, "qbo.salesreceipt.deleted.v1": QuickBookEvent, "qbo.salesreceipt.void.v1": QuickBookEvent, "qbo.salesreceipt.updated.v1": QuickBookEvent, "qbo.salesreceipt.emailed.v1": QuickBookEvent, "qbo.employee.updated.v1": QuickBookEvent, "qbo.employee.merged.v1": QuickBookEvent, "qbo.employee.created.v1": QuickBookEvent, "qbo.employee.deleted.v1": QuickBookEvent, "qbo.changeorder.created.v1": QuickBookEvent, "qbo.changeorder.updated.v1": QuickBookEvent, "qbo.changeorder.deleted.v1": QuickBookEvent, "qbo.transfer.created.v1": QuickBookEvent, "qbo.transfer.deleted.v1": QuickBookEvent, "qbo.transfer.void.v1": QuickBookEvent, "qbo.transfer.updated.v1": QuickBookEvent, "qbo.bill.updated.v1": QuickBookEvent, "qbo.bill.deleted.v1": QuickBookEvent, "qbo.bill.created.v1": QuickBookEvent, "qbo.purchaseorder.deleted.v1": QuickBookEvent, "qbo.purchaseorder.created.v1": QuickBookEvent, "qbo.purchaseorder.updated.v1": QuickBookEvent, "qbo.purchaseorder.emailed.v1": QuickBookEvent, "qbo.paymentmethod.updated.v1": QuickBookEvent, "qbo.paymentmethod.created.v1": QuickBookEvent, "qbo.paymentmethod.merged.v1": QuickBookEvent, "qbo.class.updated.v1": QuickBookEvent, "qbo.class.deleted.v1": QuickBookEvent, "qbo.class.created.v1": QuickBookEvent, "qbo.class.merged.v1": QuickBookEvent};
 
 service class DispatcherService {
     *http:Service;
@@ -41,6 +44,17 @@ service class DispatcherService {
             return error(string `Cannot detach the service of type ${serviceType}. Service has not been attached to the listener before`);
         }
         _ = self.services.remove(serviceType);
+    }
+
+    private isolated function parseEventPayload(json payload, string eventKey, string? fallbackKey = ()) returns GenericDataType|error {
+        typedesc<GenericDataType>? targetType = EVENT_PAYLOAD_TYPES[eventKey];
+        if targetType is () && fallbackKey is string {
+            targetType = EVENT_PAYLOAD_TYPES[fallbackKey];
+        }
+        if targetType is () {
+            return error(string `Unrecognized event identifier: ${eventKey}`);
+        }
+        return jsondata:parseAsType(payload, {allowDataProjection: {nilAsOptionalField: true, absentAsNilableType: true}}, targetType);
     }
 
     resource function post .(http:Caller caller, http:Request request) returns error? {
@@ -67,7 +81,7 @@ service class DispatcherService {
                 continue;
             }
             string elementEventType = eventTypeField.toString();
-            GenericDataType|error genericDataTypeResult = event.cloneWithType(GenericDataType);
+            GenericDataType|error genericDataTypeResult = self.parseEventPayload(event, elementEventType);
             if genericDataTypeResult is error {
                 log:printError("DISPATCH_FAILED", genericDataTypeResult);
                 continue;
