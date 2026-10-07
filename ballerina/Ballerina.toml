@@ -8,3 +8,4 @@ authors = ["Ballerina"]
 keywords = ["Area/Finance & Accounting", "Cost/Freemium", "Type/Trigger"]
 icon = "icon.png"
 repository = "https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger"
+include = ["metadata/**"]
