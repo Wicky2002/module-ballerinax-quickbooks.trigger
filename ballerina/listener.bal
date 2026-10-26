@@ -14,32 +14,62 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/cloud;
 import ballerina/http;
 
 @display {label: "QuickBooks Webhooks", iconPath: "icon.png"}
 public class Listener {
     private http:Listener httpListener;
-    private DispatcherService dispatcherService;
+    private ListenerConfig listenerConfig;
+    private map<DispatcherService> dispatchers = {};
+    private [string, GenericServiceType][] attachments = [];
 
-    public function init(ListenerConfig listenerConfig = {}, @cloud:Expose int|http:Listener listenOn = 8090) returns error? {
+    public function init(ListenerConfig listenerConfig = {}, int|http:Listener listenOn = 8090) returns error? {
         if listenOn is http:Listener {
             self.httpListener = listenOn;
         } else {
             self.httpListener = check new (listenOn);
         }
-        self.dispatcherService = new DispatcherService(listenerConfig.webhookSecret);
-        check self.httpListener.attach(self.dispatcherService, ());
+        self.listenerConfig = listenerConfig;
     }
 
-    public isolated function attach(GenericServiceType serviceRef, () attachPoint) returns error? {
+    public isolated function attach(GenericServiceType serviceRef, string[]|string? attachPoint) returns error? {
         string serviceTypeStr = check self.getServiceTypeStr(serviceRef);
-        check self.dispatcherService.addServiceRef(serviceTypeStr, serviceRef);
+        string path = self.pathKey(attachPoint);
+        DispatcherService dispatcher;
+        DispatcherService? existing = self.dispatchers[path];
+        if existing is DispatcherService {
+            dispatcher = existing;
+        } else {
+            dispatcher = new (self.listenerConfig.webhookSecret);
+            check self.httpListener.attach(dispatcher, path == "" ? () : path);
+            self.dispatchers[path] = dispatcher;
+        }
+        check dispatcher.addServiceRef(serviceTypeStr, serviceRef);
+        self.attachments.push([path, serviceRef]);
     }
 
     public isolated function detach(GenericServiceType serviceRef) returns error? {
         string serviceTypeStr = check self.getServiceTypeStr(serviceRef);
-        check self.dispatcherService.removeServiceRef(serviceTypeStr);
+        foreach int i in 0 ..< self.attachments.length() {
+            string path = self.attachments[i][0];
+            if self.attachments[i][1] === serviceRef {
+                DispatcherService dispatcher = self.dispatchers.get(path);
+                check dispatcher.removeServiceRef(serviceTypeStr);
+                _ = self.attachments.remove(i);
+                boolean pathInUse = false;
+                foreach [string, GenericServiceType] attachment in self.attachments {
+                    if attachment[0] == path {
+                        pathInUse = true;
+                    }
+                }
+                if !pathInUse {
+                    check self.httpListener.detach(dispatcher);
+                    _ = self.dispatchers.remove(path);
+                }
+                return;
+            }
+        }
+        return error(string `Cannot detach the service of type ${serviceTypeStr}. Service has not been attached to the listener before`);
     }
 
     public isolated function 'start() returns error? {
@@ -56,11 +86,41 @@ public class Listener {
 
     private isolated function getServiceTypeStr(GenericServiceType serviceRef) returns string|error {
         match serviceRef {
-            var v if v is CompanyCurrencyService => {
-                return "CompanyCurrencyService";
-            }
             var v if v is AccountService => {
                 return "AccountService";
+            }
+            var v if v is BillService => {
+                return "BillService";
+            }
+            var v if v is BillPaymentService => {
+                return "BillPaymentService";
+            }
+            var v if v is BudgetService => {
+                return "BudgetService";
+            }
+            var v if v is ChangeOrderService => {
+                return "ChangeOrderService";
+            }
+            var v if v is ClassService => {
+                return "ClassService";
+            }
+            var v if v is CreditMemoService => {
+                return "CreditMemoService";
+            }
+            var v if v is CurrencyService => {
+                return "CurrencyService";
+            }
+            var v if v is CustomerService => {
+                return "CustomerService";
+            }
+            var v if v is DepartmentService => {
+                return "DepartmentService";
+            }
+            var v if v is DepositService => {
+                return "DepositService";
+            }
+            var v if v is EmployeeService => {
+                return "EmployeeService";
             }
             var v if v is EstimateService => {
                 return "EstimateService";
@@ -68,90 +128,74 @@ public class Listener {
             var v if v is InvoiceService => {
                 return "InvoiceService";
             }
-            var v if v is CustomerService => {
-                return "CustomerService";
-            }
-            var v if v is TaxAgencyService => {
-                return "TaxAgencyService";
-            }
-            var v if v is JournalEntryService => {
-                return "JournalEntryService";
-            }
             var v if v is ItemService => {
                 return "ItemService";
-            }
-            var v if v is DepartmentService => {
-                return "DepartmentService";
-            }
-            var v if v is RefundReceiptService => {
-                return "RefundReceiptService";
-            }
-            var v if v is CurrencyService => {
-                return "CurrencyService";
-            }
-            var v if v is BillPaymentService => {
-                return "BillPaymentService";
-            }
-            var v if v is CreditMemoService => {
-                return "CreditMemoService";
-            }
-            var v if v is BudgetService => {
-                return "BudgetService";
-            }
-            var v if v is PreferencesService => {
-                return "PreferencesService";
-            }
-            var v if v is TimeActivityService => {
-                return "TimeActivityService";
-            }
-            var v if v is DepositService => {
-                return "DepositService";
             }
             var v if v is JournalCodeService => {
                 return "JournalCodeService";
             }
-            var v if v is PurchaseService => {
-                return "PurchaseService";
-            }
-            var v if v is VendorCreditService => {
-                return "VendorCreditService";
-            }
-            var v if v is TermService => {
-                return "TermService";
-            }
-            var v if v is VendorService => {
-                return "VendorService";
+            var v if v is JournalEntryService => {
+                return "JournalEntryService";
             }
             var v if v is PaymentService => {
                 return "PaymentService";
             }
-            var v if v is SalesReceiptService => {
-                return "SalesReceiptService";
+            var v if v is PaymentMethodService => {
+                return "PaymentMethodService";
             }
-            var v if v is EmployeeService => {
-                return "EmployeeService";
+            var v if v is PreferencesService => {
+                return "PreferencesService";
             }
-            var v if v is ChangeOrderService => {
-                return "ChangeOrderService";
-            }
-            var v if v is TransferService => {
-                return "TransferService";
-            }
-            var v if v is BillService => {
-                return "BillService";
+            var v if v is PurchaseService => {
+                return "PurchaseService";
             }
             var v if v is PurchaseOrderService => {
                 return "PurchaseOrderService";
             }
-            var v if v is PaymentMethodService => {
-                return "PaymentMethodService";
+            var v if v is RefundReceiptService => {
+                return "RefundReceiptService";
             }
-            var v if v is ClassService => {
-                return "ClassService";
+            var v if v is SalesReceiptService => {
+                return "SalesReceiptService";
+            }
+            var v if v is TaxAgencyService => {
+                return "TaxAgencyService";
+            }
+            var v if v is TermService => {
+                return "TermService";
+            }
+            var v if v is TimeActivityService => {
+                return "TimeActivityService";
+            }
+            var v if v is TransferService => {
+                return "TransferService";
+            }
+            var v if v is CompanyCurrencyService => {
+                return "CompanyCurrencyService";
+            }
+            var v if v is VendorService => {
+                return "VendorService";
+            }
+            var v if v is VendorCreditService => {
+                return "VendorCreditService";
             }
             var _ => {
                 return error("Unrecognized service type attached to the listener");
             }
         }
+    }
+
+    private isolated function pathKey(string[]|string? attachPoint) returns string {
+        if attachPoint is () {
+            return "";
+        }
+        string path = attachPoint is string ? attachPoint : string:'join("/", ...attachPoint);
+        while path.startsWith("/") {
+            path = path.substring(1);
+        }
+        while path.endsWith("/") {
+            path = path.substring(0, path.length() - 1);
+        }
+        return path;
     }
 }

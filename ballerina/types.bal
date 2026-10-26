@@ -42,6 +42,3 @@ public type QuickBookEvent record {
     # update/delete/void/email is not yet confirmed against a real delivery.
     map<json> data?;
 };
-
-# The union of every possible webhook payload type this listener can receive.
-public type GenericDataType QuickBookEvent;
