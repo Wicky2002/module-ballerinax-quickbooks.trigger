@@ -32,6 +32,8 @@ rootProject.name = 'module-ballerinax-quickbooks.trigger'
 include ':quickbooks.trigger-ballerina'
 
 project(':quickbooks.trigger-ballerina').projectDir = file("ballerina")
+include ':quickbooks.trigger-compiler-plugin'
+project(':quickbooks.trigger-compiler-plugin').projectDir = file("compiler-plugin")
 
 develocity {
     buildScan {
