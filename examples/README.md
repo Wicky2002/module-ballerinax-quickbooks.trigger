@@ -13,7 +13,7 @@ example needs a QuickBooks app with a webhook subscribed to the events it listen
 
 ## Running an example
 
-Execute the following commands to build an example from the source:
+Execute the following commands from an example's directory (for example `cd customer-sync-notifier`) to build it from the source:
 
 * To build an example:
 
