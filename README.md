@@ -46,6 +46,15 @@ Accounting API on your behalf, and the notification itself carries only the chan
 its full data (QuickBooks webhooks are notification-only by design; fetch the entity separately via
 the Accounting API if you need its contents).
 
+### Key features
+
+- Receives 108 QuickBooks Online entity events across 31 entity types, such as invoices, payments, customers and bills
+- Verifies every delivery with the webhook verifier token (HMAC-SHA256, `Intuit-Signature`)
+- Handles QuickBooks' batched CloudEvents deliveries, dispatching each event to its own handler
+- Acknowledges each delivery before running your handler, so a slow or failing handler doesn't cause retries
+- Services can be attached on their own path, so several triggers and HTTP services can share one port
+- Trigger services are listed by `bal build --export-endpoints` (Ballerina 2201.13.6 or later)
+
 ## Setup guide
 
 Before using this connector in your Ballerina application, you need an Intuit developer account and
