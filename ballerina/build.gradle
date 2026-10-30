@@ -110,6 +110,8 @@ clean {
 
 build.dependsOn "updateTomlFiles"
 build.dependsOn ":quickbooks.trigger-compiler-plugin:build"
+// bal test loads the compiler plugin jar named in CompilerPlugin.toml, so it must be built first.
+test.dependsOn ":quickbooks.trigger-compiler-plugin:jar"
 build.dependsOn "generatePomFileForMavenPublication"
 publishToMavenLocal.dependsOn build
 publish.dependsOn build
