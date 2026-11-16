@@ -1,7 +1,7 @@
 # Ballerina Quickbooks.trigger connector
 
 [![Build](https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger/actions/workflows/ci.yml/badge.svg)](https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger/actions/workflows/ci.yml)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/ballerina-platform/module-ballerinax-quickbooks.trigger.svg)](https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger/commits/master)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/ballerina-platform/module-ballerinax-quickbooks.trigger.svg)](https://github.com/ballerina-platform/module-ballerinax-quickbooks.trigger/commits/main)
 [![GitHub Issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-library/module/quickbooks.trigger.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-library/labels/module%2Fquickbooks.trigger)
 
 ## Overview
@@ -45,6 +45,15 @@ a single delivery when multiple events occur close together - it does not call Q
 Accounting API on your behalf, and the notification itself carries only the changed entity's ID, not
 its full data (QuickBooks webhooks are notification-only by design; fetch the entity separately via
 the Accounting API if you need its contents).
+
+### Key features
+
+- Receives 108 QuickBooks Online entity events across 31 entity types, such as invoices, payments, customers and bills
+- Verifies every delivery with the webhook verifier token (HMAC-SHA256, `Intuit-Signature`)
+- Handles QuickBooks' batched CloudEvents deliveries, dispatching each event to its own handler
+- Acknowledges each delivery before running your handler, so a slow or failing handler doesn't cause retries
+- Services can be attached on their own path, so several triggers and HTTP services can share one port
+- Trigger services are listed by `bal build --export-endpoints` (Ballerina 2201.13.6 or later)
 
 ## Setup guide
 
